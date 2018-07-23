@@ -7,12 +7,7 @@ public class LeetCode2 {
       ListNode(int x) { val = x; }
     }
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (l1.val == 0){
-            return l2;
-        }
-        if (l2.val == 0){
-            return l1;
-        }
+
         ListNode listNode1 = new ListNode(0);
         ListNode listNode_ = new ListNode(2);
         listNode_ = listNode1;
