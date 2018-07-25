@@ -23,7 +23,7 @@ public class LeetCode5 {
         String temp = null;
         for (int i = 0; i < s.length(); i++){
             temp = null;
-            for (int j = s.length() -1; j > i; j--){
+            for (int j = s.length(); j > i; j--){
                 temp = s.substring(i, j);
                 if (isPalindrome(temp)){
                     if (temp.length() > result.length()){
@@ -56,5 +56,7 @@ public class LeetCode5 {
         String s = "bb";
         //String t = s.substring(0, 1);
         System.out.println(leetCode5.longestPalindrome(s));
+
+        System.out.println(isPalindrome(s));
     }
 }
