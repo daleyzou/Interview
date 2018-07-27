@@ -25,10 +25,11 @@ public class LeetCode10 {
      * @param: p
      * @return: boolean
      */
+    // 参考博客：https://blog.csdn.net/m0_37674257/article/details/71750979
     public boolean isMatch(String s, String p) {
         String reg = p;
         if (reg.equals(".*")){
-            return false;
+            return true;
         }
         return false;
     }

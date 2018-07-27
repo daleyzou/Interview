@@ -34,9 +34,45 @@ public class LeetCode13 {
      * @return: int
      */
     public int romanToInt(String s) {
-        return 0;
+
+        int returnValue = 0;
+        char[] chars = {'I','V','X','L','C','D','M'};
+        int [] ints = {1,5,10,50,100,500,1000};
+        char[] targets = s.toCharArray();
+        int[] result = new int[targets.length];
+        for (int i = 0; i < targets.length; i++){
+            int j = 0;
+            while (targets[i] != chars[j]){
+                j++;
+            }
+           result[i] = ints[j];
+
+        }
+        for (int i = 0; i < result.length - 1; i++){
+            if (result[i] < result[i + 1]){
+                returnValue -= result[i];
+            }else {
+                returnValue += result[i];
+            }
+
+        }
+
+//        for (int i = 0; i < result.length; i++){
+//            System.out.println(result[i]);
+//
+//        }
+
+        returnValue += result[result.length - 1];
+        return returnValue;
     }
     public static void main(String[] args){
-        System.out.println();
+        LeetCode13 leetCode13 = new LeetCode13();
+        String s1 = "III";
+        String s2 = "MCMXCIV";
+        String s3 = "MCM";
+        //System.out.println(leetCode13.romanToInt(s1));
+        System.out.println("-------------------------------------");
+        System.out.println(leetCode13.romanToInt(s2));
+        //System.out.println(leetCode13.romanToInt(s3));
     }
 }
