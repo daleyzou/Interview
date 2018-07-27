@@ -26,7 +26,10 @@ public class LeetCode10 {
      * @return: boolean
      */
     public boolean isMatch(String s, String p) {
-
+        String reg = p;
+        if (reg.equals(".*")){
+            return false;
+        }
         return false;
     }
 

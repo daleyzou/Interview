@@ -1,5 +1,7 @@
 package com.daleyzou.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @Author: DaleyZou
  * @Description:
@@ -82,8 +84,29 @@ public class LeetCode5 {
         if (s.length() < 2) { // 单个字符肯定是回文串，直接返回s
             return s;
         }
+        int maxLength = 0;
+        int center = 0;
+        for (int i = 0; i < s.length(); i++){
+            int begin = centerExpand(s, i, i);          // 最长回文串长度为奇数
+            int end = centerExpand(s, i, i + 1);   // 最长回文串长度为偶数
 
-        return null;
+            if (maxLength < Math.max(begin, end)){
+                center = i;                                // 以center为中心
+                maxLength = Math.max(begin, end);          // 最长回文串长度
+            }
+        }
+        // 如果我们的回文串的长度为偶数，那么中心左边的长度会比右边的长度小1
+        return s.substring(center - (maxLength - 1) / 2, center + maxLength / 2 + 1);
+    }
+
+    int centerExpand(String s, int begin, int end){
+        int left = begin, right = end;
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+            left--;
+            right++;
+        }
+        // 返回以begin,end为基准，同时向左向右扩展后能够得到的最长回文串长度
+        return right - left - 1;
     }
 
     // 使用动态规划法
@@ -91,15 +114,35 @@ public class LeetCode5 {
         if (s.length() < 2) { // 单个字符肯定是回文串，直接返回s
             return s;
         }
-
-        return null;
+        boolean[][] dp = new boolean[s.length()][s.length()];  // 初始化一个二维数组，值默认是false
+        String result = s.substring(0,1);
+        for (int j = 0; j < s.length(); j++){
+            for (int i = 0; i <= j; i++){
+                dp[i][j] = s.charAt(i) == s.charAt(j) &&(j - i <= 2 || dp[i+1][j-1]);
+                if (dp[i][j]){
+                    if (j - i + 1 > result.length()){
+                        result = s.substring(i, j + 1);
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     public static void main(String[] args){
         LeetCode5 leetCode5 = new LeetCode5();
-        String s = "ba";
+        String s = "aaaaaaaaaa";
+        String s1 = "babad";
+        String s2 = "bbb";
+        String s3 = "abcd";
+        String s4 = "cbbd";
+
         //String t = s.substring(0, 1);
-        System.out.println(s.substring(0,1));
+        //System.out.println(s.substring(0,1));
+//        System.out.println(leetCode5.longestPalindrome_reconstructure3(s1));
+//        System.out.println(leetCode5.longestPalindrome_reconstructure3(s2));
+//        System.out.println(leetCode5.longestPalindrome_reconstructure3(s3));
+        System.out.println(leetCode5.longestPalindrome_reconstructure3(s4));
 
         //System.out.println(isPalindrome(s));
     }
