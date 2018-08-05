@@ -29,6 +29,9 @@ public class NowCode3 {
 
     public static boolean isMatch(String s1, String s2) {
         String str = s1 + s2;
+        if (str.charAt(0) == ')'){
+            return false;
+        }
         for (int i = 0; i < str.length(); i++) {
             stack1.push(str.charAt(i));
         }
@@ -41,14 +44,17 @@ public class NowCode3 {
                 char c1 = (char) stack2.peek();
                 if (c1 == c) {
                     stack2.push(c);
-                } else {
+                } else if (c1 == ')'){
                     stack2.pop();
+                }else {
+                    stack2.push(c);
                 }
             }
         }
         boolean result = false;
         if (stack2.isEmpty()) {
             result = true;
+//            System.out.println(str);
         } else {
             result = false;
         }
@@ -75,19 +81,20 @@ public class NowCode3 {
                     if (isMatch(strings[i], strings[j])) {
                         result++;
                     }
-                    if (isMatch(strings[i], strings[i] + strings[j])) {
-                        result++;
-                    }
-
                 }
             }
 
 //        for (int i = 0; i < num1; i++){
 //            System.out.println(strings[i]);
 //        }
-       System.out.println(result);
+//       System.out.println(result);
+            if (strings[i].charAt(strings[i].length() - 1) != '('){
+                if (isMatch(strings[i], strings[i])) {
+                    result++;
+                }
+            }
 
         }
-        System.out.println("end:"+result);
+        System.out.println(result);
     }
 }
