@@ -107,7 +107,6 @@ public class LeetCode15 {
                 int c = -(nums[i] + nums[j]);
                 boolean isContains;
                 isContains = containsC(j + 1, nums, c);
-
                 if (isContains){
                     List<Integer> list = new ArrayList<Integer>();
                     list.add(nums[i]);
