@@ -15,8 +15,20 @@ package com.daleyzou.leetcode;
 public class LeetCode16 {
 
     public int threeSumClosest(int[] nums, int target) {
-
-        return 0;
+        int result = nums[0] + nums[1] + nums[2];
+        int temp = Math.abs(result - target);
+        for (int i = 0; i < nums.length - 2; i++){
+            for (int j = i + 1; j < nums.length - 1; j++){
+                for (int k = j + 1; k < nums.length; k++){
+                    int value = Math.abs(nums[i] + nums[j] + nums[k] - target);
+                    if (value < temp){
+                        result = nums[i] + nums[j] + nums[k];
+                        temp = value;
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     public static void main(String[] args){
