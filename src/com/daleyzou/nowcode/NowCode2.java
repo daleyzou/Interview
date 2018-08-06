@@ -1,5 +1,6 @@
 package com.daleyzou.nowcode;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -13,32 +14,53 @@ import java.util.Scanner;
  * @Modified By:
  */
 public class NowCode2 {
-
-    public static void main(String[] args){
+    public static void main1(String[] args){  // 解法一，超时
         Scanner scanner = new Scanner(System.in);
-        int num1 = scanner.nextInt();
-        int num2 = scanner.nextInt();
+        BigInteger num1 = new BigInteger(scanner.nextInt() + "");
+        BigInteger num2 = new BigInteger(scanner.nextInt() + "");
         if (num1 == num2){
             System.out.println("=");
             return;
         }
-        int temp1 = num1;
-        int temp2 = num2;
-        for (int i = 0; i < num2 - 1; i++){
-            num1 = num1 * temp1;
+        int temp1 = num1.intValue();
+        int temp2 = num2.intValue();
+        for (int i = 0; i < temp2 - 1; i++){
+            //num1 = num1 * temp1;
+            num1 = num1.multiply(BigInteger.valueOf(temp1));
         }
         for (int i = 0; i < temp1 - 1; i++){
-            num2 = num2 * temp2;
+            //num2 = num2 * temp2;
+            num2 = num2.multiply(BigInteger.valueOf(temp2));
         }
 
-        if (num1 == num2) {
+        int i = num1.compareTo(num2);
+        if (i == 0) {
             System.out.println("=");
-        }else if (num1 < num2){
+        }else if (i == -1){
             System.out.println("<");
         }else {
             System.out.println(">");
         }
+    }
 
+    public static void main(String[] args){
+
+
+
+        // 解法二
+        Scanner in = new Scanner(System.in);
+        double x = in.nextDouble();
+        double y = in.nextDouble();
+        double sumx = y * Math.log(x);
+        double sumy = x * Math.log(y);
+
+        if (sumx == sumy){
+            System.out.println("=");
+        }else if (sumx < sumy){
+            System.out.println("<");
+        }else {
+            System.out.println(">");
+        }
 
     }
 }
