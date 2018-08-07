@@ -12,7 +12,7 @@ public class LeetCode19 {
       int val;
       ListNode next;
       ListNode(int x) { val = x; }
-  }
+    }
     public ListNode removeNthFromEnd(ListNode head, int n) {
         int i = 1;
         ListNode temp = head;
