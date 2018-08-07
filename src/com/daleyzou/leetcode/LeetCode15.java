@@ -127,7 +127,11 @@ public class LeetCode15 {
         long ll = System.currentTimeMillis();
 //        System.out.println(ll - l);
 
+<<<<<<< HEAD
        // System.out.println(leetCode15.threeSum(num3));
+=======
+//        System.out.println(leetCode15.threeSum(num3));
+>>>>>>> 45cb53c711c93e82b29227fbccd38f5d64e18d03
         long lll = System.currentTimeMillis();
         System.out.println(lll - ll);
 
