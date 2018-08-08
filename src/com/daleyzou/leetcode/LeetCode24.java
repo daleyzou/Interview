@@ -7,6 +7,7 @@ package com.daleyzou.leetcode;
  * @Modified By:
  */
 public class LeetCode24 {
+    // 参考链接：https://blog.csdn.net/qunxingvip/article/details/51865417
     public class ListNode {
         int val;
         ListNode next;
