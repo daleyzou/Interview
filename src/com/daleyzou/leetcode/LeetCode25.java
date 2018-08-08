@@ -15,61 +15,83 @@ public class LeetCode25 {
         ListNode next;
         ListNode(int x) { val = x; }
     }
-
+    /**
+     * @Description:
+     * @auther: DaleyZou
+     * @date: 13:46 2018-8-8
+     * @param: head 链表的头结点
+     * @param: k k 个节点一组进行翻转
+     * @return: ListNode
+     */
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode curr = head;
+        ListNode currentNode = head;
+        if (currentNode == null || k < 0){
+            return head;
+        }
         int count = 0;
-        while (curr != null && count != k) { // find the k+1 node
-            curr = curr.next;
+        while (currentNode != null && count < k){ // find the k+1 node
+            currentNode = currentNode.next;
             count++;
         }
-        if (count == k) { // if k+1 node is found
-            curr = reverseKGroup(curr, k); // reverse list with k+1 node as head
-            // head - head-pointer to direct part,
-            // curr - head-pointer to reversed part;
-            while (count-- > 0) { // reverse current k-group:
-                ListNode tmp = head.next; // tmp - next head in direct part
-                head.next = curr; // preappending "direct" head to the reversed list
-                curr = head; // move head of reversed part to a new node
-                head = tmp; // move "direct" head to the next node in direct part
+        if (count == k){ // if k+1 node is found
+            currentNode = reverseKGroup(currentNode, k); // reverse list with k+1 node as head
+            while (count-- > 0){ // reverse current k-group:
+                ListNode temp = head.next;
+                head.next = currentNode;
+                currentNode = head;
+                head = temp;
             }
-            head = curr;
+            head = currentNode;
         }
         return head;
     }
 
-    public ListNode reverse(ListNode head, ListNode tail){
-        ListNode curr = tail;
-        while (head != tail) { // reverse current k-group:
-            ListNode tmp = head.next; // tmp - next head in direct part
-            head.next = curr; // preappending "direct" head to the reversed list
-            curr = head; // move head of reversed part to a new node
-            head = tmp; // move "direct" head to the next node in direct part
-            ListNode out = curr;
+    /**
+     * @Description:
+     * @auther: DaleyZou
+     * @date: 11:28 2018-8-8 
+     * @param: head
+     * @param: k
+     * @return: com.daleyzou.leetcode.LeetCode25.ListNode
+     */
+    public ListNode reverse(ListNode head, int k){
+        int count = 0;
+        ListNode currentNode = head;
+        while (currentNode != null && count < k){
+            currentNode = currentNode.next;
+            count++;
+        }
+        while (count-- > 0) {
+            ListNode tmp = head.next;
+            head.next = currentNode;
+            currentNode = head;
+            head = tmp;
+            ListNode out = currentNode;
             while (out != null){
                 System.out.print(out.val + " ");
                 out = out.next;
             }
             System.out.println();
         }
-        return curr;
+        return currentNode;
     }
     public static void main(String[] args){
         LeetCode25 leetcode25 = new LeetCode25();
+
+        // 初始化5个链表节点
         ListNode head = new ListNode(1);
         ListNode head1 = new ListNode(2);
         ListNode head2 = new ListNode(3);
         ListNode head3 = new ListNode(4);
+        ListNode head4 = new ListNode(5);
 
+        // 添加节点间的关联关系
         head.next = head1;
         head1.next = head2;
         head2.next = head3;
+        head3.next = head4;
 
-        ListNode reverse = leetcode25.reverse(head, head3);
-        System.out.println("一下结果；————————————————————————————————————");
-        while (reverse != null){
-            System.out.println(reverse.val);
-            reverse = reverse.next;
-        }
+        // 对前四个节点进行翻转
+        ListNode reverse = leetcode25.reverse(head, 4);
     }
 }
