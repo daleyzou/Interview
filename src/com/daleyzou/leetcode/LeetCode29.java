@@ -56,6 +56,8 @@ public class LeetCode29 {
         return result;
     }
 
+    // 参考链接：https://www.nowcoder.com/discuss/87221?type=0&order=0&pos=6&page=0
+
     public static void main(String[] args){
         LeetCode29 leetCode29 = new LeetCode29();
        int result = leetCode29.divide(-2147483648,2);
