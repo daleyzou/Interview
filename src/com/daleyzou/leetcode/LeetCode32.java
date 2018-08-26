@@ -7,5 +7,5 @@ package com.daleyzou.leetcode;
  * @Modified By:
  */
 public class LeetCode32 {
-    
+
 }
