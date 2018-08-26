@@ -25,6 +25,9 @@ public class LeetCode10 {
      * @param: p
      * @return: boolean
      */
+
+    // 使用动态规划法的博客：http://www.cnblogs.com/grandyang/p/4461713.html
+
         // 参考博客：https://blog.csdn.net/m0_37674257/article/details/71750979
     public boolean isMatch(String s, String p) {
         if (p.equals(".*")){
