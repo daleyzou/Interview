@@ -1,4 +1,4 @@
-package com.daleyzou.algorithm;
+package com.daleyzou.learn;
 
 /**
  * @Author: DaleyZou
