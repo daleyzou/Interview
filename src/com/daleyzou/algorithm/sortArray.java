@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @Author: DaleyZou
- * @Description:  对 candidates 数组进行排序、去重
+ * @Description:  对 一个int数组 candidates 数组进行排序、去重
  * @Date: Created in 10:43 2018-8-23
  * @Modified By:
  */

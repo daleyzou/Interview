@@ -1,6 +1,5 @@
 package com.daleyzou.algorithm.huffman;
 
-import jdk.nashorn.internal.ir.WhileNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +42,12 @@ public class MinHeap {
      * @param: end 截止范围（一般为数组中最后一个元素的索引）
      * @return: void
      */
-    private void filterdown(int start, int end) {
+    private void
+
+    filterdown(int start, int end) {
         int c = start; // 当前（current）节点的位置
         int l = 2 * c + 1; // 左（left）节点的位置
-        HuffmanNode tmp = mHeap.get(c);// 当前（current）jied
+        HuffmanNode tmp = mHeap.get(c);// 当前（current）节点
         while (l <= end){
             // “l”是左节点， “l+1”是右节点
             if (l < end && (mHeap.get(l).compareTo(mHeap.get(l + 1)) > 0)){

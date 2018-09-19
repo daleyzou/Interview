@@ -2,7 +2,7 @@ package com.daleyzou.algorithm.huffman;
 
 /**
  * @Author: DaleyZou
- * @Description: Huffman树
+ * @Description: Huffman树  参考博客：https://www.cnblogs.com/skywang12345/p/3706833.html
  * @Date: Created in 13:55 2018-9-17
  * @Modified By:
  */
