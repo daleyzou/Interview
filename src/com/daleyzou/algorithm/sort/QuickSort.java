@@ -1,4 +1,4 @@
-package com.daleyzou.algorithm;
+package com.daleyzou.algorithm.sort;
 
 /**
  * @Author: DaleyZou

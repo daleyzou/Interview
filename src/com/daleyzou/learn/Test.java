@@ -1,5 +1,7 @@
 package com.daleyzou.learn;
 
+import java.util.Arrays;
+
 /**
  * @Author: DaleyZou
  * @Description:
@@ -18,9 +20,12 @@ public class Test {
         a1.concat("aa");
         System.out.println(a1 + "," + b1);
 
+        int[] as = new int[]{3,2,1};
+        Arrays.sort(as);
     }
     static void oper(String c,String d){
         c.concat("B");
         d=c;
     }
+
 }

@@ -8,7 +8,7 @@ import java.util.*;
  * @Date: Created in 10:43 2018-8-23
  * @Modified By:
  */
-public class sortArray {
+public class SortArray {
     public static void main(String[] args){
         /**
          思路：
