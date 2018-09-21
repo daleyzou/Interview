@@ -22,6 +22,9 @@ public class Test {
 
         int[] as = new int[]{3,2,1};
         Arrays.sort(as);
+
+        // 查看哈希值源码
+        System.out.println("哈希值：" + a1.hashCode());
     }
     static void oper(String c,String d){
         c.concat("B");
