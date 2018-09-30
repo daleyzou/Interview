@@ -13,8 +13,8 @@ public class LeetCode48 {
 
     public void rotate(int[][] matrix) {
         int n = matrix[0].length; // 二维数组的宽度
-        for (int i = 0; i <= n / 2; i++){
-            for (int j = i; j < n - i - 1; j++){
+        for (int i = 0; i <= n / 2; i++){  // i代表一个个的小正方形的起点
+            for (int j = i; j < n - i - 1; j++){ // j代表当前正方形的每条边上的值
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[n - j - 1][i];
                 matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
