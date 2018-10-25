@@ -13,6 +13,6 @@ public class LeetCode61 {
       ListNode(int x) { val = x; }
     }
     public ListNode rotateRight(ListNode head, int k) {
-        
+
     }
 }
