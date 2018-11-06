@@ -14,5 +14,6 @@ public class LeetCode61 {
     }
     public ListNode rotateRight(ListNode head, int k) {
 
+        return null;
     }
 }

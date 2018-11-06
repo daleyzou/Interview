@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  */
 public class HuffmanCode {
     private class Node implements Comparable<Node>{
-        char ch; // 字符
+        char ch;  // 字符
         int freq; // 权值
         boolean isLeaf;  // 是否是叶子节点
         Node left, right;  // 父节点的左节点和右节点

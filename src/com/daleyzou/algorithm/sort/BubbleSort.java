@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @Author: DaleyZou
- * @Description: 快速排序
+ * @Description: 冒泡排序
  * @Date: Created in 14:53 2018-9-20
  * @Modified By:
  */
