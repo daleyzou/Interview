@@ -1,4 +1,4 @@
-package daleyzou.algorithm.sort;
+package com.daleyzou.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.Comparator;
