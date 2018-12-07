@@ -11,6 +11,12 @@ import java.util.HashMap;
  * @Modified By:
  */
 public class SortByFrequency {
+
+    /**
+     * @Description: 使用传统方法，重载compare
+     * @param: nums
+     * @return: void
+     */
     public void sort(Integer[] nums){
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++){
@@ -35,10 +41,32 @@ public class SortByFrequency {
         System.out.println("after sort:" + Arrays.toString(nums));
     }
 
+    public void sortUseLambda(Integer[] nums){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++){
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+
+        // 输出map的数据
+        System.out.println("map:" + map);
+        System.out.println("orign:" + Arrays.toString(nums));
+
+        Arrays.sort(nums, (Integer o1, Integer o2)->{
+            if (map.get(o1) == map.get(o2)){// 出现次数相同
+                return o1.compareTo(o2);
+            }else { // 根据出现次数比大小
+                return map.get(o1).compareTo(map.get(o2));
+            }
+        });
+
+        System.out.println("after sort:" + Arrays.toString(nums));
+    }
+
     public static void main(String[] args){
         Integer[] nums = new Integer[]{1,9,4,3,2,1,8,2,2,2};
 
         SortByFrequency sortByFrequency = new SortByFrequency();
-        sortByFrequency.sort(nums);
+//        sortByFrequency.sort(nums);
+        sortByFrequency.sortUseLambda(nums);
     }
 }
