@@ -29,6 +29,7 @@ public class MaxSubArray {
         return result;
     }
 
+
     public static void main(String[] args){
         MaxSubArray maxSubArray = new MaxSubArray();
 
