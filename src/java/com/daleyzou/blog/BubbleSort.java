@@ -17,7 +17,8 @@ public class BubbleSort<T extends Comparable<T>> extends Sort<T> {
         for (int i = 0; i < nums.length; i++){
             isSorted = true;
             for (int j = 1; j < nums.length - i; j++){
-                if (nums[j].compareTo(nums[j - 1]) < 0){
+//                if (nums[j].compareTo(nums[j - 1]) < 0){
+                if (less(nums[j], nums[j - 1]) < 0){
                     swap(nums, j, j - 1);
                     isSorted = false;
                 }

@@ -29,7 +29,7 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
     // 测试是否成功
     public static void main(String[] args){
-        Map<Integer, Integer> map = new LRUCache<>(4);
+        Map<Integer, Integer> map = new LRUCache<>(3);
 
         map.put(3,4);
         map.put(4,5);

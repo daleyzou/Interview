@@ -30,7 +30,7 @@ public class SortByFrequency {
         Comparator<Integer> comparator = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                if (map.get(o1) != map.get(o2)){
+                if (map.get(o1).equals(map.get(o2))){
                     return Integer.compare(map.get(o1), map.get(o2));
                 }else {
                     return Integer.compare(o1, o2);
@@ -41,6 +41,11 @@ public class SortByFrequency {
         System.out.println("after sort:" + Arrays.toString(nums));
     }
 
+    /**
+     * @Description: 使用lambda语法，简化代码行数
+     * @param: nums 待排序数组
+     * @return: void
+     */
     public void sortUseLambda(Integer[] nums){
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++){
@@ -52,7 +57,8 @@ public class SortByFrequency {
         System.out.println("orign:" + Arrays.toString(nums));
 
         Arrays.sort(nums, (Integer o1, Integer o2)->{
-            if (map.get(o1) == map.get(o2)){// 出现次数相同
+            // 出现次数相同
+            if (map.get(o1) == map.get(o2)){
                 return o1.compareTo(o2);
             }else { // 根据出现次数比大小
                 return map.get(o1).compareTo(map.get(o2));
