@@ -19,8 +19,29 @@ public class FindNumber {
      * @return: boolean
      */
     public boolean Find(int target, int [][] array) {
+        if (array.length < 1){
+            return false;
+        }
+        if (array[0].length < 1){
+            return false;
+        }
+        int begin = array[0][0];
+        int end = array[array.length - 1][array[0].length - 1];
+        if (target > end){
+            return false;
+        }
 
-        return true;
+        for (int i = 0; i < array.length; i++){
+            if (target > array[i][array[0].length - 1]){
+                continue;
+            }
+            for (int j = 0; j < array[0].length; j++){
+                if (target == array[i][j]){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
