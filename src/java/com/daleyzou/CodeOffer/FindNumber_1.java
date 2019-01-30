@@ -9,7 +9,7 @@ package com.daleyzou.CodeOffer;
  * @Date: Created in 23:38 2019/1/17
  * @Modified By:
  */
-public class FindNumber {
+public class FindNumber_1 {
 
     /**
      * @Description: 二维数组中的查找

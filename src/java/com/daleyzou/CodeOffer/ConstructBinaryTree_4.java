@@ -13,7 +13,7 @@ import java.util.Map;
  * @Date: Created in 7:58 2019/1/29
  * @Modified By:
  */
-public class ConstructBinaryTree {
+public class ConstructBinaryTree_4 {
 
     public static class TreeNode {
       int val;
@@ -54,7 +54,7 @@ public class ConstructBinaryTree {
     public static void main(String[] args){
         int[] pre = new int[]{1,2,4,7,3,5,6,8};
         int[] in = new int []{4,7,2,1,5,3,8,6};
-        ConstructBinaryTree constructBinaryTree = new ConstructBinaryTree();
+        ConstructBinaryTree_4 constructBinaryTree = new ConstructBinaryTree_4();
         TreeNode treeNode = constructBinaryTree.reConstructBinaryTree(pre, in);
         System.out.println(treeNode.val);
 

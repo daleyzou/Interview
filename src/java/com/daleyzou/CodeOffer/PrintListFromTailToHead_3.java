@@ -1,7 +1,6 @@
 package com.daleyzou.CodeOffer;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 /**
@@ -12,7 +11,7 @@ import java.util.Stack;
  * @Modified By:
  */
 
-public class PrintListFromTailToHead {
+public class PrintListFromTailToHead_3 {
     public static class ListNode {
         int val;
         ListNode next = null;
@@ -38,7 +37,7 @@ public class PrintListFromTailToHead {
     }
 
     public static void main(String[] args){
-        PrintListFromTailToHead printListFromTailToHead = new PrintListFromTailToHead();
+        PrintListFromTailToHead_3 printListFromTailToHead = new PrintListFromTailToHead_3();
 
         ListNode listNode = new ListNode(1);
         ListNode listNode1 = new ListNode(2);

@@ -8,7 +8,7 @@ package com.daleyzou.CodeOffer;
  * @Date: Created in 23:30 2019/1/28
  * @Modified By:
  */
-public class ReplaceSpace {
+public class ReplaceSpace_2 {
     public String replaceSpace(StringBuffer str) {
         String string = str.toString();
         char[] chars = string.toCharArray();
