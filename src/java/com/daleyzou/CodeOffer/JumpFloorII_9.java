@@ -8,7 +8,22 @@ package com.daleyzou.CodeOffer;
  * @Modified By:
  */
 public class JumpFloorII_9 {
+    /**
+     * @Description: 方法一
+     * @param: target
+     * @return: int
+     */
     public int JumpFloorII(int target) {
+        return 0;
+    }
 
+    /**
+     * @Description: 方法二
+     * @param: target
+     * @return: int
+     */
+    public int JumpFloorII_method2(int target) {
+
+        return 0;
     }
 }
