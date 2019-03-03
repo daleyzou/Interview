@@ -10,7 +10,13 @@ package com.daleyzou.CodeOffer;
  */
 public class Fibonacci_7 {
     public int Fibonacci(int n) {
+        if (n <= 1){
+            return n;
+        }
+        if (n == 2){
+            return 1;
+        }
 
-        return 0;
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 }
