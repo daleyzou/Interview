@@ -78,9 +78,28 @@ public class LeetCode89 {
 
     }
 
+    /**
+     *  镜像反射法
+     *https://leetcode-cn.com/problems/gray-code/solution/gray-code-jing-xiang-fan-she-fa-by-jyd/
+     * @param n
+     * @return
+     * @author daleyzou
+     */
+    public List<Integer> grayCode_backup1(int n) {
+        List<Integer> res = new ArrayList<Integer>() {{ add(0); }};
+        for (int i = 0; i < n; i++) {
+            int head = 1 << i;
+            res.add(head);
+//            for (int j = res.size() - 1; j >= 0; j--)
+//                res.add(head + res.get(j));
+        }
+        return res;
+    }
+
     public static void main(String[] args){
         LeetCode89 leetCode89 = new LeetCode89();
-        leetCode89.grayCode(2);
+        List<Integer> integers = leetCode89.grayCode_backup1(3);
+        System.out.println(integers);
 
     }
 }
