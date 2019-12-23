@@ -8,7 +8,7 @@ package com.daleyzou.leetcode;
  * @Modified By:
  */
 public class LeetCode208 {
-    class TrieNode {
+    public class TrieNode {
         final int length = 26;
 
         TrieNode[] nodes;
