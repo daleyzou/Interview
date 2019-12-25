@@ -14,5 +14,16 @@ package com.daleyzou.CodeOffer;
  * @version 1.0.0
  */
 public class RectangularCover_10 {
-
+    public int RectCover(int target) {
+        if (target < 3){
+            return target;
+        }
+        int[] result = new int[target];
+        result[0] = 1;
+        result[1] = 2;
+        for (int i = 2; i < target; i++){
+            result[i] = result[i - 1] + result[i-2];
+        }
+        return result[target - 1];
+    }
 }
