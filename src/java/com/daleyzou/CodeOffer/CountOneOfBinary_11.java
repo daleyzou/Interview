@@ -15,7 +15,13 @@ package com.daleyzou.CodeOffer;
  */
 public class CountOneOfBinary_11 {
     public int NumberOf1(int n) {
-
+        String binaryString = Integer.toBinaryString(n);
+        System.out.println(binaryString);
         return 0;
+    }
+
+    public static void main(String[] args){
+        CountOneOfBinary_11 object = new CountOneOfBinary_11();
+        object.NumberOf1(-2);
     }
 }
