@@ -25,6 +25,13 @@ public class CountOneOfBinary_11 {
         }
         return result;
     }
+
+    public int getByMyself(int n){
+        int result = 0;
+
+        return result;
+    }
+
     final static char[] digits = {
             '0' , '1' , '2' , '3' , '4' , '5' ,
             '6' , '7' , '8' , '9' , 'a' , 'b' ,
