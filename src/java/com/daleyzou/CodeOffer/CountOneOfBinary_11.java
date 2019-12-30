@@ -9,6 +9,9 @@ package com.daleyzou.CodeOffer;
 /**
  * CountOneOfBinary_11
  * @description 二进制中1的个数
+ *
+ *    https://blog.csdn.net/u013190513/article/details/70216730
+ *
  * @author daleyzou
  * @date 2019年12月25日 23:36
  * @version 1.0.0
@@ -28,8 +31,49 @@ public class CountOneOfBinary_11 {
 
     public int getByMyself(int n){
         int result = 0;
+        int num = getNumber(n);
+        int size = Integer.SIZE - num;
+        int[] array = new int[size];
+        int countOne = 0;
+        while (n != 0){
+            int end = n & 1;
+            if (end == 1){
+                countOne++;
+            }
+            array[size - 1] = end;
+            n >>>= 1;
+            size--;
+        }
+        return countOne;
+    }
 
-        return result;
+    private int getNumber(int n) {
+        if (n == 0){
+            return 32;
+        }
+        int num = 0;
+        if (n >>> 16 == 0){
+            n += 16;
+            n <<= 16;
+        }
+        if (n >>> 24 == 0){
+            n += 8;
+            n <<= 8;
+        }
+        if (n >>> 28 == 0){
+            n += 4;
+            n <<= 4;
+        }
+        if (n >>> 30 == 0){
+            n += 2;
+            n <<= 2;
+        }
+        if (n >>> 31 == 0){
+            n += 1;
+            n <<= 1;
+        }
+
+        return num;
     }
 
     final static char[] digits = {
@@ -70,5 +114,9 @@ public class CountOneOfBinary_11 {
             System.out.println("val: " + val);
         } while (val != 0 && charPos > 0);
         System.out.println(buf);
+
+        System.out.println("++++++++++++++++++++++++接下来是我实现的源码+++++++++++++++++++++++++++++++++++++");
+        int byMyself = object.getByMyself(-1);
+        System.out.println(byMyself);
     }
 }
