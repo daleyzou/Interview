@@ -42,4 +42,56 @@ public class ReOrderArray_13 {
             array[i] = result.get(i);
         }
     }
+
+    public void reOrderArray_2(int [] array) {
+        if (array.length == 0 || array == null){
+            return;
+        }
+        int i = 0;
+         while (i < array.length){
+             if (isOdd(array[i])){
+                 // 是基数
+                 i++;
+             }else {
+                 // 是偶数
+                 // 找到后面的奇数，放到这个偶数的位置上，逐个后移
+                 int j = i + 1;
+                 while (j < array.length){
+                     if (!isOdd(array[j])){
+                         j++;
+                     }else {
+                         break;
+                     }
+                 }
+                 if (j < array.length){
+                     int index = j;
+                     int temp = array[j];
+                     while (index > i){
+                         array[index] = array[index - 1];
+                         index--;
+                     }
+                     array[i] = temp;
+                 }else {
+                     break;
+                 }
+             }
+         }
+    }
+
+    private boolean isOdd(int i) {
+        if ((i & 1) == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public static void main(String[] args){
+        ReOrderArray_13 object = new ReOrderArray_13();
+        int[] array = new int[]{1,2,3,4,5,6,7,8,9};
+        object.reOrderArray_2(array);
+        for (int i : array){
+            System.out.println(i);
+        }
+    }
 }
