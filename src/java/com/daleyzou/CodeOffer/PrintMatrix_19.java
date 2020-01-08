@@ -31,7 +31,7 @@ public class PrintMatrix_19 {
                 resultList.add(matrix[rowBegin][j]);
             }
 
-            if (rowBegin >= rowEnd) {
+            if (rowBegin == rowEnd) {
                 break;
             }
             for (int j = rowBegin + 1; j < rowEnd; j++) {
@@ -40,7 +40,7 @@ public class PrintMatrix_19 {
             for (int j = matrix[0].length - rowBegin - 1; j >= rowBegin; j--) {
                 resultList.add(matrix[rowEnd][j]);
             }
-            if (rowBegin >= matrix[0].length - rowBegin - 1){
+            if (rowBegin == matrix[0].length - rowBegin - 1){
                 break;
             }
             for (int j = rowEnd - 1; j > rowBegin; j--) {
