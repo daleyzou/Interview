@@ -33,10 +33,12 @@ public class Stack_20 {
     public void pop() {
         if (!stack.isEmpty()){
             if (this.top() < 0){
-                min -= stack.peek();
+                min -= this.top;
             }
             stack.pop();
-            top = min + (this.top() > 0?this.top:0);
+            if (!stack.isEmpty()){
+                top = min + (this.top() > 0?this.top:0);
+            }
         }
     }
 
