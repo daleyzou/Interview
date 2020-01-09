@@ -18,7 +18,6 @@ public class Stack_20 {
     static Stack<Integer> stack = new Stack<>();
 
     int min;
-    static int top;
 
     public void push(int node) {
         if (stack.isEmpty()){
@@ -28,26 +27,46 @@ public class Stack_20 {
         if (node < min){
             min = node;
         }
-        top = node;
     }
 
     public void pop() {
         if (!stack.isEmpty()){
-            if (this.top() < 0){
-                min -= top;
+            if (top() < 0){
+                min -= top();
             }
             stack.pop();
-            if (!stack.isEmpty()){
-                top = min + (this.top() > 0?top:0);
-            }
+
         }
     }
 
     public int top() {
-        return top;
+        return stack.peek();
     }
 
     public int min() {
         return min;
+    }
+
+    public static void main(String[] args){
+        Stack_20 object = new Stack_20();
+        // "PSH3","MIN","PSH4","MIN","PSH2","MIN","PSH3","MIN","POP","MIN","POP","MIN","POP","MIN","PSH0","MIN"]
+        object.push(3);
+        System.out.print(object.min() + " ");
+        object.push(4);
+        System.out.print(object.min() + " ");
+        object.push(2);
+        System.out.print(object.min() + " ");
+        object.push(3);
+        System.out.print(object.min() + " ");
+
+        object.pop();
+        System.out.print(object.min() + " ");
+        object.pop();
+        System.out.print(object.min() + " ");
+        object.pop();
+        System.out.print(object.min() + " ");
+
+        object.push(0);
+        System.out.print(object.min() + " ");
     }
 }
