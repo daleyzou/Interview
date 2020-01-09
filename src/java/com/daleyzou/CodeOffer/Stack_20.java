@@ -15,9 +15,10 @@ import java.util.Stack;
  * @version 3.1.2
  */
 public class Stack_20 {
-    Stack<Integer> stack = new Stack<>();
+    static Stack<Integer> stack = new Stack<>();
 
-    int min, top;
+    int min;
+    static int top;
 
     public void push(int node) {
         if (stack.isEmpty()){
@@ -33,11 +34,11 @@ public class Stack_20 {
     public void pop() {
         if (!stack.isEmpty()){
             if (this.top() < 0){
-                min -= this.top;
+                min -= top;
             }
             stack.pop();
             if (!stack.isEmpty()){
-                top = min + (this.top() > 0?this.top:0);
+                top = min + (this.top() > 0?top:0);
             }
         }
     }
