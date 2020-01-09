@@ -8,6 +8,8 @@ import java.util.Stack;
  *
  * https://www.nowcoder.com/questionTerminal/4c776177d2c04c2494f2555c9fcc1e49?answerType=1&f=discussion
  *
+ * https://blog.nowcoder.net/n/498fa52e417c426b8f1f267e43401c2e
+ *
  * @author daleyzou
  * @date 2020年01月08日 22:02
  * @version 3.1.2
