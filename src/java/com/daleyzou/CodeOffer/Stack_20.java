@@ -1,5 +1,7 @@
 package com.daleyzou.CodeOffer;
 
+import java.util.Stack;
+
 /**
  * Stack_20
  * @description 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））
@@ -11,20 +13,36 @@ package com.daleyzou.CodeOffer;
  * @version 3.1.2
  */
 public class Stack_20 {
-    private
-    public void push(int node) {
+    Stack<Integer> stack = new Stack<>();
 
+    int min, top;
+
+    public void push(int node) {
+        if (stack.isEmpty()){
+            min = node;
+        }
+        stack.push(node - min);
+        if (node < min){
+            min = node;
+        }
+        top = node;
     }
 
     public void pop() {
-
+        if (!stack.isEmpty()){
+            if (this.top() < 0){
+                min -= stack.peek();
+            }
+            stack.pop();
+            top = min + (this.top() > 0?this.top:0);
+        }
     }
 
     public int top() {
-
+        return top;
     }
 
     public int min() {
-
+        return min;
     }
 }
