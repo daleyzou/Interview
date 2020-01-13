@@ -37,7 +37,7 @@ public class d23_VerifySquenceOfBST {
         if (i >= end){
             return true;
         }
-        return verify(sequence, start, i) && verify(sequence, i + 1, end);
+        return verify(sequence, start, i -1) && verify(sequence, i, end - 1);
     }
 
     public static void main(String[] args){
