@@ -1,13 +1,13 @@
 package com.daleyzou.CodeOffer;
 
 /**
- * Mirror_18
+ * d18_Mirror
  * @description TODO
  * @author daleyzou
  * @date 2020年01月08日 20:02
  * @version 3.1.2
  */
-public class Mirror_18 {
+public class d18_Mirror {
     public class TreeNode {
         int val = 0;
         TreeNode left = null;
