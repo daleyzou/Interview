@@ -49,6 +49,7 @@ public class d24_FindPath {
         if (root.val < target){
             path.add(root.val);
             find(root.left, target - root.val, path);
+            path.remove(path.size() - 1);
             find(root.right, target - root.val, path);
         }
     }
