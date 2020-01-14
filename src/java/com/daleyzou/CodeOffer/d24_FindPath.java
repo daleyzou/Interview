@@ -49,10 +49,7 @@ public class d24_FindPath {
         if (root.val < target){
             path.add(root.val);
             find(root.left, target - root.val, path);
-            if (root.right != null){
-                path.add(root.left.val);
-                find(root.right, target - root.val - root.left.val, path);
-            }
+            find(root.right, target - root.val, path);
         }
     }
 }
