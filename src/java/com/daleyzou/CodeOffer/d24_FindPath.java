@@ -43,14 +43,13 @@ public class d24_FindPath {
             path.add(root.val);
             resultList.add(new ArrayList<>(path));
             path.remove(path.size() - 1);
-//            path.clear();
             return;
         }
-        if (root.val < target){
-            path.add(root.val);
-            find(root.left, target - root.val, path);
-            path.remove(path.size() - 1);
-            find(root.right, target - root.val, path);
+
+        path.add(root.val);
+        find(root.left, target - root.val, path);
+        if (root.left != null){
+            find(root.right, target - root.val - root.left.val, path);
         }
     }
 }
