@@ -36,7 +36,6 @@ public class d24_FindPath {
 
     private void find(TreeNode root, int target, ArrayList<Integer> path) {
         if (root == null || root.val > target){
-            path.remove(path.size() - 1);
             return;
         }
         if (root.val == target){
@@ -45,11 +44,15 @@ public class d24_FindPath {
             path.remove(path.size() - 1);
             return;
         }
-
-        path.add(root.val);
-        find(root.left, target - root.val, path);
         if (root.left != null){
-            find(root.right, target - root.val - root.left.val, path);
+            path.add(root.val);
+            find(root.left, target - root.val, path);
+            path.remove(path.size() - 1);
+        }
+        if (root.right != null){
+            path.add(root.val);
+            find(root.right, target - root.val, path);
+            path.remove(path.size() - 1);
         }
     }
 }
