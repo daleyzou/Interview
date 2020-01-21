@@ -38,7 +38,7 @@ public class d24_FindPath {
         if (root == null || root.val > target){
             return;
         }
-        if (root.val == target){
+        if (root.val == target && root.left == null && root.right == null){
             path.add(root.val);
             resultList.add(new ArrayList<>(path));
             path.remove(path.size() - 1);
