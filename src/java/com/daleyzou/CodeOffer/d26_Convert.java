@@ -20,27 +20,28 @@ public class d26_Convert {
         }
 
     }
-    public TreeNode Convert(TreeNode pRootOfTree) {
-        if (pRootOfTree == null){
+    public TreeNode Convert(TreeNode root) {
+        if (root == null){
             return null;
         }
-        if (pRootOfTree.left == null && pRootOfTree.right == null){
-            return pRootOfTree;
+        if (root.left == null && root.right == null){
+            return root;
+        }
+        TreeNode left = Convert(root.left);
+        TreeNode p = left;
+        while (p!=null && p.right!=null){
+            p = p.right;
+        }
+        if (left != null){
+            p.right = root;
+            root.left = p;
         }
 
-        TreeNode left = Convert(pRootOfTree.left);
-
-        left.right = pRootOfTree;
-        pRootOfTree.left = left;
-
-        TreeNode right = Convert(pRootOfTree.right);
-
-        TreeNode rightPoint = right;
-        while (rightPoint.left != null){
-            rightPoint = right.left;
+        TreeNode right = Convert(root.right);
+        if (right!=null){
+            right.left = root;
+            root.right = right;
         }
-        rightPoint.left = pRootOfTree;
-        pRootOfTree.right = rightPoint;
-        return left != null ? left : pRootOfTree;
+        return left != null ? left : root;
     }
 }
