@@ -17,6 +17,11 @@ import java.util.List;
 
  输入描述:
  输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。
+
+
+ 参考链接：
+ https://github.com/nibnait/algorithms/blob/master/src/main/java/algorithm_practice/SwordOffer/old/d28_%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97.java
+ https://www.nowcoder.com/questionTerminal/fe6b651b66ae47d7acce78ffdd9a96c7?f=discussion
  * @author daleyzou
  * @date 2020年02月03日 23:46
  * @version 3.2.0
