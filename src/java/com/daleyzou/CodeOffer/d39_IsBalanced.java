@@ -10,8 +10,8 @@ package java.com.daleyzou.CodeOffer;
 public class d39_IsBalanced {
     public class TreeNode {
         int val = 0;
-        d38_TreeDepth.TreeNode left = null;
-        d38_TreeDepth.TreeNode right = null;
+        TreeNode left = null;
+        TreeNode right = null;
 
         public TreeNode(int val) {
             this.val = val;
@@ -20,6 +20,24 @@ public class d39_IsBalanced {
 
     }
     public boolean IsBalanced_Solution(TreeNode root) {
+        int[] depth = new int[]{0};
+
+        return isBalance(root, depth);
+    }
+
+    private boolean isBalance(TreeNode root, int[] depth) {
+        if (root == null){
+            depth[0] = 0;
+            return true;
+        }
+        int[] left = new int[]{0};
+        int[] right = new int[]{0};
+        if (isBalance(root.left, left)&&isBalance(root.right, right)){
+            if (left[0] - right[0] >=-1 && left[0] - right[0] <=1){
+                depth[0] = 1+ Math.max(left[0], right[0]);
+                return true;
+            }
+        }
         return false;
     }
 }
