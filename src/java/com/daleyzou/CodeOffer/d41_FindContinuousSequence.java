@@ -23,16 +23,16 @@ public class d41_FindContinuousSequence {
     }
 
     private void findSeries(int i, int sum, ArrayList<Integer> item, ArrayList<ArrayList<Integer>> resultList) {
-        if (sum + i > tempSum && item.size() > 0){
+        if (i > sum){
+            if (item.size() < 1){
+                return;
+            }
             Integer integer = item.get(0);
             item.remove(0);
             findSeries(i, sum + integer, item, resultList);
         }
         System.out.println("value:" + sum);
         System.out.println(item.toString());
-        if (sum==22){
-            System.out.println("pause");
-        }
         if (i < sum){
             item.add(i);
             findSeries(i + 1, sum - i, item, resultList);
@@ -40,26 +40,23 @@ public class d41_FindContinuousSequence {
         if (item.size() < 1){
             return;
         }
-        if (item.get(0) > tempSum || item.get(item.size() - 1) > tempSum / 2){
+        if (item.get(item.size() - 1) > tempSum / 2 + 1){
             return;
         }
         if (i == sum){
             item.add(i);
             ArrayList<Integer> tempList = new ArrayList<>(item);
             resultList.add(tempList);
+            Integer temp = item.get(1);
             item.clear();
-            findSeries(i + 1, tempSum, item, resultList);
-        } else {
-            Integer integer = item.get(0);
-            item.remove(0);
-            item.add(i);
-            findSeries(i + 1, sum - i + integer, item, resultList);
+            item.add(temp);
+            findSeries(temp +1, tempSum-temp, item, resultList);
         }
     }
 
     public static void main(String[] args){
         d41_FindContinuousSequence object = new d41_FindContinuousSequence();
-        ArrayList<ArrayList<Integer>> arrayLists = object.FindContinuousSequence(100);
+        ArrayList<ArrayList<Integer>> arrayLists = object.FindContinuousSequence(15);
         System.out.println("结果如下：");
         arrayLists.stream().forEach(item->{
             System.out.println(item.toString());
