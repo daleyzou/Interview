@@ -1,4 +1,4 @@
-package java.com.daleyzou.CodeOffer;
+package com.daleyzou.CodeOffer;
 
 /**
  * d38_TreeDepth

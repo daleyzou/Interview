@@ -1,4 +1,4 @@
-package java.com.daleyzou.CodeOffer;
+package com.daleyzou.CodeOffer;
 
 import java.util.HashMap;
 import java.util.List;
