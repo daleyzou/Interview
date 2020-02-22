@@ -56,7 +56,7 @@ public class d41_FindContinuousSequence {
 
     public static void main(String[] args){
         d41_FindContinuousSequence object = new d41_FindContinuousSequence();
-        ArrayList<ArrayList<Integer>> arrayLists = object.FindContinuousSequence(15);
+        ArrayList<ArrayList<Integer>> arrayLists = object.FindContinuousSequence(100);
         System.out.println("结果如下：");
         arrayLists.stream().forEach(item->{
             System.out.println(item.toString());
