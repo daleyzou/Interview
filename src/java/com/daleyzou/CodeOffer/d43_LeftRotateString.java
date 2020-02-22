@@ -12,8 +12,22 @@ package com.daleyzou.CodeOffer;
  */
 public class d43_LeftRotateString {
     public String LeftRotateString(String str,int n) {
-        String result = "";
+        if (str == null || str.length() <= 1){
+            return str;
+        }
+        n = (n % str.length());
+        if (n == 0){
+            return str;
+        }
+        String beginStr = str.substring(0, n);
+        String endStr = str.substring(n);
+        return endStr+beginStr;
+    }
 
-        return result;
+    public static void main(String[] args){
+        d43_LeftRotateString object = new d43_LeftRotateString();
+        String str = "abcXYZdef";
+        String s = object.LeftRotateString(str, 3);
+        System.out.println(s);
     }
 }
