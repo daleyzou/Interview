@@ -28,6 +28,9 @@ public class d49_StrToInt {
             if (str.length() == 1){
                 return 0;
             }
+            if ("-2147483648".equals(str)){
+                return Integer.MIN_VALUE;
+            }
             chars = str.substring(1).toCharArray();
             symble = false;
         }
@@ -45,12 +48,7 @@ public class d49_StrToInt {
         for (int i = results.length - 1; i >= 0; i--){
             int temp = results[i] * (int)Math.pow(10, j);
             if (Integer.MAX_VALUE - result < temp){
-                if (!symble && Integer.MAX_VALUE - result == -1){
-
-                }else {
-
-                    return 0;
-                }
+                return 0;
             }
             result += temp;
             j++;
@@ -101,7 +99,8 @@ public class d49_StrToInt {
 
     public static void main(String[] args){
         d49_StrToInt object = new d49_StrToInt();
-        String str = "-2147483649";
+        System.out.println(Integer.MIN_VALUE);
+        String str = "-2147483648";
         int i = object.StrToInt(str);
         System.out.println(i);
     }
