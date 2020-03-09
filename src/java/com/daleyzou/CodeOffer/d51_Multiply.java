@@ -13,6 +13,13 @@ package com.daleyzou.CodeOffer;
  * @version 3.3.0
  */
 public class d51_Multiply {
+    /***
+     * @Description: https://www.nowcoder.com/questionTerminal/94a4d381a68b47b7a8bed86f2975db46?f=discussion
+     *               看看大家的吧
+     * @date: 23:20 2020/3/9
+     * @param: A
+     * @return: int[]
+     */
     public int[] multiply(int[] A) {
         int[] result = new int[A.length];
         for (int i = 0; i < A.length; i++){
