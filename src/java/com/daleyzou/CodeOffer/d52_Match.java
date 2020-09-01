@@ -12,10 +12,9 @@ package com.daleyzou.CodeOffer;
  * @date 2020年05月07日 9:13
  * @version 3.3.0
  */
-public class d52_Math {
-    public boolean match(char[] str, char[] pattern)
-    {
-        boolean result=false;
+public class d52_Match {
+    public boolean match(char[] str, char[] pattern) {
+        boolean result = false;
         return result;
 
     }
