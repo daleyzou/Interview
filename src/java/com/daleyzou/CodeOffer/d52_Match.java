@@ -13,8 +13,14 @@ package com.daleyzou.CodeOffer;
  * @version 3.3.0
  */
 public class d52_Match {
+
     public boolean match(char[] str, char[] pattern) {
         boolean result = false;
+        char symble
+        if (str.length <= 0 || pattern.length <= 0){
+            return false;
+        }
+
         return result;
 
     }
