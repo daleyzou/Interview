@@ -16,12 +16,30 @@ public class d52_Match {
 
     public boolean match(char[] str, char[] pattern) {
         boolean result = false;
-        char symble
         if (str.length <= 0 || pattern.length <= 0){
             return false;
         }
+        int strLength = str.length;
+        int patternLength = pattern.length;
+        return matchMore(str, 0, pattern, 0);
 
-        return result;
+    }
 
+    private boolean matchMore(char[] str, int strIndex, char[] pattern, int patternIndex) {
+        if (strIndex == str.length && pattern.length == patternIndex){
+            return true;
+        }
+        if (pattern.length == patternIndex && strIndex < str.length){
+            return false;
+        }
+
+
+
+    }
+
+    public static void main(String[] args){
+        d52_Match match = new d52_Match();
+
+        System.out.println("true " + match.match("aaa".toCharArray(),"a*a".toCharArray()));
     }
 }
