@@ -26,14 +26,33 @@ public class d52_Match {
     }
 
     private boolean matchMore(char[] str, int strIndex, char[] pattern, int patternIndex) {
+        // 都到了末尾
         if (strIndex == str.length && pattern.length == patternIndex){
             return true;
         }
-        if (pattern.length == patternIndex && strIndex < str.length){
+        // 字符串没有到末尾， 模式已经到了末尾
+        if (pattern.length == patternIndex && strIndex != str.length){
             return false;
         }
 
+        // 第二个字符是 *
+        if (patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*' ){
+            // 当前是相等 或者 .   开始考虑三种情况
+            if (strIndex != str.length && pattern[patternIndex] == '.' || strIndex != str.length && pattern[patternIndex] == str[strIndex]){
+                return matchMore(str, strIndex, pattern, patternIndex+2) ||
+                        matchMore(str, strIndex + 1, pattern, patternIndex + 2) ||
+                        matchMore(str, strIndex + 1, pattern, patternIndex);
+            }else{
+                return matchMore(str, strIndex, pattern, patternIndex + 2);
+            }
+        }
 
+        //  判断当前匹配是 .或者相等
+        if (str.length != strIndex && (pattern[patternIndex] == str[strIndex] || pattern[patternIndex] == '.')){
+            return matchMore(str, strIndex + 1, pattern, patternIndex + 1);
+        }else {
+            return false;
+        }
 
     }
 
