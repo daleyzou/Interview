@@ -8,16 +8,19 @@ package com.daleyzou.CodeOffer;
  * 模式中的字符'.'表示任意一个字符，而'*'表示它前面的字符可以出现任意次（包含0次）。
  *
  * 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但是与"aa.a"和"ab*a"均不匹配
+ *
+ * kan https://blog.csdn.net/u010947534/article/details/88381919
+ * https://cyc2018.github.io/CS-Notes/#/notes/19.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D
  * @author daleyzou
  * @date 2020年05月07日 9:13
  * @version 3.3.0
  */
 public class d52_Match {
 
-    public boolean match(char[] str, char[] pattern) {
+    public boolean match_1(char[] str, char[] pattern) {
         boolean result = false;
-        if (str.length <= 0 || pattern.length <= 0){
-            return false;
+        if (str.length == 0 && pattern.length == 0){
+            return true;
         }
         int strLength = str.length;
         int patternLength = pattern.length;
@@ -54,6 +57,16 @@ public class d52_Match {
             return false;
         }
 
+    }
+
+    public boolean match(char[] str, char[] pattern)
+    {
+        if (str.length <= 0){
+            return pattern.length <= 0;
+        }
+        String s = str.toString();
+        String p = pattern.toString();
+        boolean isMatch = ();
     }
 
     public static void main(String[] args){
