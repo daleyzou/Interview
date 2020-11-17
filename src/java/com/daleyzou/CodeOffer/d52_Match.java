@@ -64,11 +64,11 @@ public class d52_Match {
 
     public boolean match(char[] str, char[] pattern)
     {
-        if (str.length <= 0){
-            return pattern.length <= 0;
+        if (pattern.length <= 0){
+            return str.length <= 0;
         }
-        String s = Arrays.toString(str);
-        String p = Arrays.toString(pattern);
+        String s = str.length == 0 ? "" : String.valueOf(str);
+        String p = pattern.length == 0 ? "" : String.valueOf(pattern);
         return checkIsMatch(s, p);
     }
 
@@ -78,7 +78,8 @@ public class d52_Match {
         }
         boolean isMatch = s.length() >0 && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
         if (p.length() > 1 && p.charAt(1) == '*'){
-            return checkIsMatch(s, p.substring(2)) || checkIsMatch(s.substring(1), p);
+            return checkIsMatch(s, p.substring(2)) || (isMatch && s.length() >0 && checkIsMatch(s.substring(1), p.substring(2)))
+                    || (isMatch && s.length() > 0 && checkIsMatch(s.substring(1), p));
         }else {
             return isMatch && checkIsMatch(s.substring(1), p.substring(1));
         }
@@ -88,5 +89,11 @@ public class d52_Match {
         d52_Match match = new d52_Match();
 
         System.out.println("true " + match.match("aaa".toCharArray(),"a*a".toCharArray()));
+
+        System.out.println("true " + match.match("".toCharArray(),".*".toCharArray()));
+        // "a","ab*a"
+        System.out.println("false " + match.match("a".toCharArray(),"ab*a".toCharArray()));
+
+        System.out.println("false " + match.match("aa".toCharArray(),"b*a".toCharArray()));
     }
 }
