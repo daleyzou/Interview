@@ -1,5 +1,7 @@
 package com.daleyzou.CodeOffer;
 
+import java.util.Arrays;
+
 /**
  * d52_Math
  * @description
@@ -11,6 +13,7 @@ package com.daleyzou.CodeOffer;
  *
  * kan https://blog.csdn.net/u010947534/article/details/88381919
  * https://cyc2018.github.io/CS-Notes/#/notes/19.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D
+ * https://www.cnblogs.com/mfrank/p/10472663.html
  * @author daleyzou
  * @date 2020年05月07日 9:13
  * @version 3.3.0
@@ -64,9 +67,21 @@ public class d52_Match {
         if (str.length <= 0){
             return pattern.length <= 0;
         }
-        String s = str.toString();
-        String p = pattern.toString();
-        boolean isMatch = ();
+        String s = Arrays.toString(str);
+        String p = Arrays.toString(pattern);
+        return checkIsMatch(s, p);
+    }
+
+    private boolean checkIsMatch(String s, String p) {
+        if (p.length() <= 0){
+            return s.length() <= 0;
+        }
+        boolean isMatch = s.length() >0 && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.');
+        if (p.length() > 1 && p.charAt(1) == '*'){
+            return checkIsMatch(s, p.substring(2)) || checkIsMatch(s.substring(1), p);
+        }else {
+            return isMatch && checkIsMatch(s.substring(1), p.substring(1));
+        }
     }
 
     public static void main(String[] args){
