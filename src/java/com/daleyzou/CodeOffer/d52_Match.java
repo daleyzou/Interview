@@ -62,7 +62,7 @@ public class d52_Match {
 
     }
 
-    public boolean match(char[] str, char[] pattern)
+    public boolean match_2(char[] str, char[] pattern)
     {
         if (pattern.length <= 0){
             return str.length <= 0;
@@ -83,6 +83,15 @@ public class d52_Match {
         }else {
             return isMatch && checkIsMatch(s.substring(1), p.substring(1));
         }
+    }
+
+    public boolean match(char[] str, char[] pattern)
+    {
+        if (pattern.length <= 0){
+            return str.length <= 0;
+        }
+
+
     }
 
     public static void main(String[] args){
