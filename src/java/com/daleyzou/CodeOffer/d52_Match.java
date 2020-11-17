@@ -125,9 +125,22 @@ public class d52_Match {
 
     public boolean match(char[] str, char[] pattern)
     {
-
+        String s = String.valueOf(str);
+        String p = String.valueOf(pattern);
+        boolean[][] result = new boolean[str.length][pattern.length];
+        result[str.length][pattern.length] = true;
+        return endMatch(s, p, result);
     }
 
+    private boolean endMatch(String s, String p, boolean[][] result) {
+        for (int i = s.length(); i >= 0 ; i--){
+            for (int j = p.length(); j >= 0; j--){
+
+            }
+        }
+
+        return result[0][0];
+    }
 
     public static void main(String[] args) {
         d52_Match match = new d52_Match();
