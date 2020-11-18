@@ -84,7 +84,7 @@ public class d52_Match {
 
     /**
      *  https://www.cnblogs.com/mfrank/p/10472663.html
-     *
+     * 自顶向下
      * @param str
      * @param pattern
      * @return
@@ -123,19 +123,33 @@ public class d52_Match {
         return ans;
     }
 
+    /**
+     *  动态规划
+     *  自底向上
+     *
+     * @param str
+     * @param pattern
+     * @return
+     * @author zoudaifa
+     */
     public boolean match(char[] str, char[] pattern)
     {
         String s = String.valueOf(str);
         String p = String.valueOf(pattern);
-        boolean[][] result = new boolean[str.length][pattern.length];
+        boolean[][] result = new boolean[str.length +1][pattern.length + 1];
         result[str.length][pattern.length] = true;
         return endMatch(s, p, result);
     }
 
     private boolean endMatch(String s, String p, boolean[][] result) {
-        for (int i = s.length(); i >= 0 ; i--){
-            for (int j = p.length(); j >= 0; j--){
-
+        for (int i = s.length() - 1; i >= 0 ; i--){
+            for (int j = p.length() - 1; j >= 0; j--){
+                boolean currentMatch = (i < s.length() && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.'));
+                if ( j + 1 < p.length() && p.charAt(j + 1) == '*'){
+                    result[i][j] = result[i][j + 2] || (currentMatch && result[i+1][j+2]);
+                }else {
+                    result[i][j] = currentMatch && result[i + 1][j + 1];
+                }
             }
         }
 
