@@ -12,7 +12,7 @@ package com.daleyzou.CodeOffer;
  * @version 1.3.1
  */
 public class d53_IsNumeric {
-    public boolean isNumeric(char[] str) {
+    public boolean isNumeric_1(char[] str) {
         try {
             double v = Double.parseDouble(str.toString());
             return true;
@@ -20,6 +20,28 @@ public class d53_IsNumeric {
             return false;
         }
     }
+
+    /**
+     *  + - 只出现在第一位或者 eE的后一位
+     *  + —— 后紧跟着一定是 数字 或者是 .
+     *
+     *  eE只出现一次，后面必定为数字或者 + ——
+     *  .只出现一次， 后面必定为数字或者最后一位
+     *
+     * @param str
+     * @return
+     * @author daleyzou
+     */
+    public boolean isNumeric(char[] str) {
+        if (str.length == 0){
+            return false;
+        }
+
+
+
+        return false;
+    }
+
 
     public static void main(String[] args){
         d53_IsNumeric test = new d53_IsNumeric();
