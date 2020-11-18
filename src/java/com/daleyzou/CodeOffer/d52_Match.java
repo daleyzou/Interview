@@ -130,7 +130,7 @@ public class d52_Match {
      * @param str
      * @param pattern
      * @return
-     * @author zoudaifa
+     * @author dalelyzou
      */
     public boolean match(char[] str, char[] pattern)
     {
