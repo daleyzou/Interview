@@ -136,17 +136,23 @@ public class d52_Match {
     {
         String s = String.valueOf(str);
         String p = String.valueOf(pattern);
+        if (pattern.length == 0){
+            return str.length == 0;
+        }
+        if (str.length == 0) {
+            return pattern.length == 2 && pattern[1] == '*';
+        }
         boolean[][] result = new boolean[str.length +1][pattern.length + 1];
         result[str.length][pattern.length] = true;
         return endMatch(s, p, result);
     }
 
     private boolean endMatch(String s, String p, boolean[][] result) {
-        for (int i = s.length() - 1; i >= 0 ; i--){
+        for (int i = s.length(); i >= 0 ; i--){
             for (int j = p.length() - 1; j >= 0; j--){
                 boolean currentMatch = (i < s.length() && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.'));
                 if ( j + 1 < p.length() && p.charAt(j + 1) == '*'){
-                    result[i][j] = result[i][j + 2] || (currentMatch && result[i+1][j+2]);
+                    result[i][j] = result[i][j + 2] || (currentMatch && result[i+1][j]);
                 }else {
                     result[i][j] = currentMatch && result[i + 1][j + 1];
                 }
