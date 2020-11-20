@@ -58,6 +58,7 @@ public class d54_FirstApearingOnce {
 //        return '#';
 //    }
 
+
     int[] charCnt = new int[128];
     Queue<Character> queue = new LinkedList<Character>();
 
