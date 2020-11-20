@@ -66,6 +66,7 @@ public class d54_FirstApearingOnce {
         if (charCnt[ch]++ == 0) //新来的单身字符，入队
             queue.add(ch);
     }
+
     //return the first appearence once char in current stringstream
     public char FirstAppearingOnce() {
         Character CHAR = null;
