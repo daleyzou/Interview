@@ -46,6 +46,27 @@ public class d55_EntryNodeOfLoop {
 
     public ListNode EntryNodeOfLoop(ListNode pHead)
     {
-
+        if (pHead == null || pHead.next == null){
+            return null;
+        }
+        ListNode pFirst = pHead;
+        ListNode pEnd = pHead;
+        pFirst = pFirst.next;
+        pEnd = pEnd.next.next;
+        while (pFirst != pEnd){
+            pFirst = pFirst.next;
+            pEnd = pEnd.next.next;
+            if (pFirst == null ||pEnd == null){
+                return null;
+            }
+        }
+        pFirst = pHead;
+        while (true){
+            if (pFirst == pEnd){
+                return pFirst;
+            }
+            pFirst = pFirst.next;
+            pEnd = pEnd.next;
+        }
     }
 }
