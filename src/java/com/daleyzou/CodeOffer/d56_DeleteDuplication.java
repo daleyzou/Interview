@@ -1,5 +1,8 @@
 package com.daleyzou.CodeOffer;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * d56_DeleteDuplication
  * @description 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
@@ -17,6 +20,37 @@ public class d56_DeleteDuplication {
             this.val = val;
         }
     }
+    public ListNode deleteDuplication_1(ListNode pHead){
+        if (pHead == null || pHead.next == null){
+            return pHead;
+        }
+        ListNode pFirst = pHead;
+        Set<Integer> set = new HashSet<>();
+        while (pFirst != null){
+           if (pFirst.next != null && pFirst.val == pFirst.next.val){
+               set.add(pFirst.val);
+           }
+           pFirst = pFirst.next;
+        }
+        pFirst = pHead.next;
+        ListNode pSecond = pHead;
+        while (pFirst != null){
+            if (set.contains(pFirst.val)){
+                pSecond.next = pFirst.next;
+                pFirst = pSecond.next;
+            }else {
+                pFirst = pFirst.next;
+                pSecond = pSecond.next;
+            }
+        }
+        if (pHead != null && set.contains(pHead.val)){
+            pHead = pHead.next;
+        }
+
+        return pHead;
+    }
+
+
     public ListNode deleteDuplication(ListNode pHead)
     {
         // 用两个指针来做
@@ -34,5 +68,7 @@ public class d56_DeleteDuplication {
             pFirst = pFirst.next;
             pSecond = pSecond.next;
         }
+
+        return null;
     }
 }
