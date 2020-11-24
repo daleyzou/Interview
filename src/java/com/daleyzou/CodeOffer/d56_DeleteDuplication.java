@@ -51,23 +51,14 @@ public class d56_DeleteDuplication {
     }
 
 
-    public ListNode deleteDuplication(ListNode pHead)
+    public ListNode deleteDuplication_2(ListNode pHead)
     {
         // 用两个指针来做
         if (pHead == null ||pHead.next == null){
             return pHead;
         }
-        ListNode pFirst = pHead;
-        ListNode pSecond = pHead;
-        while (pSecond != null){
-            if (pFirst.next != null && pFirst.next.val == pSecond.val){
-                pFirst = pFirst.next;
-                continue;
-            }
+        // 用三个指针来进行处理, 没写出来，失败
 
-            pFirst = pFirst.next;
-            pSecond = pSecond.next;
-        }
 
         return null;
     }
