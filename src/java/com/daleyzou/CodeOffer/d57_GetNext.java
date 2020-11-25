@@ -24,7 +24,26 @@ public class d57_GetNext {
     }
 
     public TreeLinkNode GetNext(TreeLinkNode pNode) {
-
+        // 分两种情况 1、节点右子树不为空 -》 第一个没有左子节点的   2、有子树为空 -》最左的父节点
+        if (pNode == null){
+            return null;
+        }
+        if (pNode.right != null){
+            TreeLinkNode node = pNode.right;
+            while (node.left != null){
+                node = node.left;
+            }
+            return node;
+        }else {
+            TreeLinkNode parent = pNode.next;
+            while (parent != null){
+                if (parent.left == pNode){
+                    return parent;
+                }
+                pNode = parent;
+                parent = parent.next;
+            }
+        }
         return null;
     }
 }
