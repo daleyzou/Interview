@@ -1,6 +1,8 @@
 package com.daleyzou.CodeOffer;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * d60_PrintMany
@@ -22,7 +24,29 @@ public class d60_PrintMany {
 
     }
     ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
-
-        return null;
+        ArrayList<ArrayList<Integer>> resultList = new ArrayList<>();
+        if (pRoot == null){
+            return resultList;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(pRoot);
+        while (!queue.isEmpty()){
+            ArrayList<Integer> tempList = new ArrayList<>();
+            int size = queue.size();
+            while (size-- > 0){
+                TreeNode node = queue.poll();
+                if (node.left != null){
+                    queue.offer(node.left);
+                }
+                if (node.right != null){
+                    queue.offer(node.right);
+                }
+                tempList.add(node.val);
+            }
+            if (tempList.size() != 0){
+                resultList.add(tempList);
+            }
+        }
+        return resultList;
     }
 }
