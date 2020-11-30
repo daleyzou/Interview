@@ -14,5 +14,7 @@ public class Test {
         System.out.println(c);
         System.out.println("=====================");
         System.out.println(5%2);
+        StringBuffer stringBuffer = new StringBuffer();
+        String s;
     }
 }

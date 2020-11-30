@@ -28,9 +28,9 @@ public class d61_SerializeTreeNode {
 
     }
     String Serialize(TreeNode root) {
-
+        return null;
     }
     TreeNode Deserialize(String str) {
-
+        return null;
     }
 }
