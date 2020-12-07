@@ -1,6 +1,7 @@
-package com.interview.demo;
+package com.interview.demo.didi;
 
 import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Demo
@@ -10,7 +11,6 @@ import java.util.*;
  * @version 1.1.1
  */
 public class Demo {
-
     class Node{
         Character ch;
         Node next;
