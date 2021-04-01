@@ -3,6 +3,14 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$PROJECT_DIR$/src/java/leetcode/editor/cn/[1]两数之和.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/src/java/leetcode/editor/cn/[1]两数之和.java" />
+              <option name="questionId" value="1" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/java/leetcode/editor/cn/[63]不同路径 II.java">
           <value>
             <LeetcodeEditor>
@@ -16,6 +24,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../LeetCodePluginTemp/leetcode/editor/cn/[63]不同路径 II.java" />
               <option name="questionId" value="63" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="/var/folders/r1/k3pkkk9x0171qhkmz964gx7r0000gn/T/leetcode/editor/cn/[1]两数之和.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="/var/folders/r1/k3pkkk9x0171qhkmz964gx7r0000gn/T/leetcode/editor/cn/[1]两数之和.java" />
+              <option name="questionId" value="1" />
             </LeetcodeEditor>
           </value>
         </entry>
