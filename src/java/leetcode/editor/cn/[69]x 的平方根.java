@@ -22,7 +22,7 @@ package leetcode.editor.cn;//实现 int sqrt(int x) 函数。
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution69 {
     public int mySqrt(int x) {
         return sqrtData(1, x, x);
     }
