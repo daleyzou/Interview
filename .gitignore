@@ -1,3 +1,4 @@
 out
 /production/
 .idea/inspectionProfiles/Project_Default.xml
+/src/java/leetcode/editor/cn/doc/

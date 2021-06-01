@@ -67,6 +67,16 @@ import java.util.Map;
 class Solution {
     public void sortColors(int[] nums) {
         // bubbleSort(nums);
+//        mapSolution(nums);
+        int length = nums.length;
+        int begin = 0;
+        for (int i = 0; i < length; i++){
+
+        }
+
+    }
+
+    private void mapSolution(int[] nums) {
         Map<Integer, Integer> countMap = new HashMap<>(3);
         for (int i = 0; i < nums.length; i++) {
             Integer count = countMap.getOrDefault(nums[i], 0);
@@ -86,7 +96,6 @@ class Solution {
                 }
             }
         }
-
     }
 
     private void bubbleSort(int[] nums) {
