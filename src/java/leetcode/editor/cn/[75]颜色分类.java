@@ -58,12 +58,52 @@ package leetcode.editor.cn;
 // 👍 906 👎 0
 
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void sortColors(int[] nums) {
-        Arrays.sort(nums);
+        // bubbleSort(nums);
+        Map<Integer, Integer> countMap = new HashMap<>(3);
+        for (int i = 0; i < nums.length; i++) {
+            Integer count = countMap.getOrDefault(nums[i], 0);
+            countMap.put(nums[i], count + 1);
+        }
+        List<Integer> colorList = new ArrayList<>();
+        colorList.add(0);
+        colorList.add(1);
+        colorList.add(2);
+
+        int begin = 0;
+        for (Integer eachColor : colorList) {
+            Integer count1 = countMap.get(eachColor);
+            if (count1 != null) {
+                for (int i = 0; i < count1; i++) {
+                    nums[begin++] = eachColor;
+                }
+            }
+        }
+
+    }
+
+    private void bubbleSort(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            boolean isSwap = false;
+            for (int j = 1; j < nums.length - i; j++) {
+                if (nums[j - 1] > nums[j]) {
+                    int temp = nums[j - 1];
+                    nums[j - 1] = nums[j];
+                    nums[j] = temp;
+                    isSwap = true;
+                }
+            }
+            if (!isSwap) {
+                break;
+            }
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
