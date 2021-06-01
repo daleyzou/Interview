@@ -71,7 +71,20 @@ class Solution {
         int length = nums.length;
         int begin = 0;
         for (int i = 0; i < length; i++){
-
+            if (nums[i] == 0){
+                int temp = nums[i];
+                nums[i] = nums[begin];
+                nums[begin] = temp;
+                begin++;
+            }
+        }
+        for (int i = begin; i < length; i++){
+            if (nums[i] == 1){
+                int temp = nums[i];
+                nums[i] = nums[begin];
+                nums[begin] = temp;
+                begin++;
+            }
         }
 
     }
