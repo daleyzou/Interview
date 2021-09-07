@@ -31,7 +31,7 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution63 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
         return 0;
