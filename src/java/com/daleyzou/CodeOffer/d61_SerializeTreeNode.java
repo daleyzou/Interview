@@ -21,6 +21,7 @@ public class d61_SerializeTreeNode {
         TreeNode left = null;
         TreeNode right = null;
 
+
         public TreeNode(int val) {
             this.val = val;
 
@@ -28,6 +29,9 @@ public class d61_SerializeTreeNode {
 
     }
     String Serialize(TreeNode root) {
+        if (root ==  null){
+            return null;
+        }
         return null;
     }
     TreeNode Deserialize(String str) {
