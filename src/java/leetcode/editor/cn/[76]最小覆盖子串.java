@@ -34,9 +34,10 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution76 {
     public String minWindow(String s, String t) {
 
+        return "";
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

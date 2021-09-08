@@ -1,6 +1,6 @@
 先贴两个最近写的走格子的DP题解：
-[44. 通配符匹配题解：一个棋盘看懂动态规划(DP)思路；附Python代码](https://leetcode-cn.com/problems/wildcard-matching/solution/yi-ge-qi-pan-kan-dong-dong-tai-gui-hua-dpsi-lu-by-/)
-[718. 最长重复子数组题解：一张表，八句话看懂动态规划(DP)思路](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/solution/yi-zhang-biao-ba-ju-hua-kan-dong-dong-tai-gui-hua-/)
+[44. 通配符匹配题解：一个棋盘看懂动态规划(DP)思路；附Python代码](https://leetcode-cn.com/problems/wildcard-matching/solution206/yi-ge-qi-pan-kan-dong-dong-tai-gui-hua-dpsi-lu-by-/)
+[718. 最长重复子数组题解：一张表，八句话看懂动态规划(DP)思路](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/solution206/yi-zhang-biao-ba-ju-hua-kan-dong-dong-tai-gui-hua-/)
 &ensp;
 不过今天的题目比前面两道容易想很多
 &ensp;
