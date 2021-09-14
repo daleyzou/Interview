@@ -34,14 +34,18 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution76 {
     public String minWindow(String s, String t) {
         if(t == null || t.length() < 1){
             return "";
         }
         int[] need = new int[128];
         int[] window = new int[128];
+        int needKind = 0;
         for(int i = 0; i < t.length(); i ++){
+            if(need[t.charAt(i)] == 0){
+                needKind++;
+            }
             need[t.charAt(i)]++;
         }
 
@@ -61,37 +65,34 @@ class Solution {
                     vailde++;
                 }
             }
-
-            if (vailde == t.length()){
-                while(left < right && right - left >= t.length()){
-                    char leftC = s.charAt(left);
-                    if(vailde == t.length()){
-                        if(right - left < endIndex - beginIndex){
-                            endIndex = right;
-                            beginIndex = left;
-                        }
+            while(left < right && vailde == needKind){
+                char leftC = s.charAt(left);
+                if(vailde == needKind){
+                    if(right - left < endIndex - beginIndex){
+                        endIndex = right;
+                        beginIndex = left;
                     }
-
-                    if(need[leftC] > 0){
-                        if(window[leftC] == need[leftC]){
-                            vailde--;
-
-                        }
-                    }
-                    window[leftC]--;
-                    left++;
                 }
+
+                if(need[leftC] > 0){
+                    if(window[leftC] == need[leftC]){
+                        vailde--;
+
+                    }
+                }
+                window[leftC]--;
+                left++;
             }
+
 
         }
 
         return endIndex == Integer.MAX_VALUE?"":s.substring(beginIndex, endIndex);
     }
-
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution76 solution76 = new Solution76();
 
-        String s = solution.minWindow("ADOBECODEBANC",
+        String s = solution76.minWindow("ADOBECODEBANC",
             "ABC");
         System.out.println("result: "+ s);
     }
