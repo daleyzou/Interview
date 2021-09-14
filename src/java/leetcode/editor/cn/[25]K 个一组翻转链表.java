@@ -69,7 +69,7 @@ package leetcode.editor.cn;//给你一个链表，每 k 个节点一组进行翻
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+class Solution25 {
     public ListNode reverseKGroup(ListNode head, int k) {
         if(head == null || head.next ==null || k <=1){
             return head;
@@ -114,7 +114,7 @@ class Solution {
   }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution25 solution25 = new Solution25();
         ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);
         ListNode listNode3 = new ListNode(3);
@@ -123,7 +123,7 @@ class Solution {
         listNode2.next = listNode3;
         listNode3.next = listNode4;
 
-        ListNode listNode = solution.reverseKGroup(listNode1, 2);
+        ListNode listNode = solution25.reverseKGroup(listNode1, 2);
 
         while (listNode != null){
 

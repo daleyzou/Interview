@@ -34,10 +34,66 @@ package leetcode.editor.cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution76 {
+class Solution {
     public String minWindow(String s, String t) {
+        if(t == null || t.length() < 1){
+            return "";
+        }
+        int[] need = new int[128];
+        int[] window = new int[128];
+        for(int i = 0; i < t.length(); i ++){
+            need[t.charAt(i)]++;
+        }
 
-        return "";
+        int left = 0;
+        int right = 0;
+        int vailde = 0;
+        int endIndex = Integer.MAX_VALUE;
+        int beginIndex = 0;
+
+        while (right < s.length()){
+            char rightC = s.charAt(right);
+            window[rightC]++;
+            right++;
+            if(need[rightC] > 0){
+
+                if(window[rightC] == need[rightC]){
+                    vailde++;
+                }
+            }
+
+            if (vailde == t.length()){
+                while(left < right && right - left >= t.length()){
+                    char leftC = s.charAt(left);
+                    if(vailde == t.length()){
+                        if(right - left < endIndex - beginIndex){
+                            endIndex = right;
+                            beginIndex = left;
+                        }
+                    }
+
+                    if(need[leftC] > 0){
+                        if(window[leftC] == need[leftC]){
+                            vailde--;
+
+                        }
+                    }
+                    window[leftC]--;
+                    left++;
+                }
+            }
+
+        }
+
+        return endIndex == Integer.MAX_VALUE?"":s.substring(beginIndex, endIndex);
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        String s = solution.minWindow("ADOBECODEBANC",
+            "ABC");
+        System.out.println("result: "+ s);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
