@@ -43,9 +43,11 @@ package leetcode.editor.cn;//设计一个简化版的推特(Twitter)，可以让
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Twitter {
@@ -54,11 +56,11 @@ class Twitter {
     static class User {
         int userId;
         Twitt twittHead;
-        List<Integer> followeeIdList;
+        Set<Integer> followeeIdSet;
 
         public User(int userId){
             this.userId = userId;
-            followeeIdList = new ArrayList<>();
+            followeeIdSet = new HashSet<>();
         }
         public Twitt getTwittHead(){
             return twittHead;
@@ -66,15 +68,15 @@ class Twitter {
         public int getUserId(){
             return userId;
         }
-        public List<Integer> getFolloweeIdList(){
-            return followeeIdList;
+        public Set<Integer> getFolloweeIdSet(){
+            return followeeIdSet;
         }
 
         public void follow(int followeeId){
-            followeeIdList.add(followeeId);
+            followeeIdSet.add(followeeId);
         }
         public void unfollow(int followeeId){
-            followeeIdList.remove(followeeId);
+            followeeIdSet.remove(followeeId);
         }
         public void setTwittHead(Twitt twittHead){
             this.twittHead = twittHead;
@@ -118,12 +120,16 @@ class Twitter {
 
     /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
     public List<Integer> getNewsFeed(int userId) {
+        List<Integer> resultList = new ArrayList<>();
         User user = userMap.get(userId);
-        List<Integer> followeeIds = user.getFolloweeIdList();
+        if (user == null){
+            return resultList;
+        }
+        Set<Integer> followeeIds = new HashSet<>(user.getFolloweeIdSet());
         followeeIds.add(userId);
-        PriorityQueue<Twitt> queue = new PriorityQueue<Twitt>(followeeIds.size(), (t1, t2)->t2.time-t1.time);
+        PriorityQueue<Twitt> queue = new PriorityQueue<Twitt>(followeeIds.size(), (t1, t2)->(t2.time-t1.time));
         for(Integer followeeId: followeeIds){
-            Twitt twitt = userMap.getOrDefault(followeeId, new User(0)).getTwittHead();
+            Twitt twitt = userMap.get(followeeId).getTwittHead();
             if(twitt == null){
                 continue;
             }
@@ -131,15 +137,16 @@ class Twitter {
         }
 
         int i = 1;
-        List<Integer> resultList = new ArrayList<>();
         while(!queue.isEmpty() && i <= 10){
             Twitt poll = queue.poll();
+            i++;
             resultList.add(poll.getTweetId());
             if (poll.next != null){
                 queue.add(poll.next);
             }
-        }
 
+        }
+        System.out.println(resultList.toString());
         return resultList;
     }
 
@@ -166,6 +173,33 @@ class Twitter {
             userMap.put(followerId, user);
         }
         user.unfollow(followeeId);
+    }
+
+    public static void main(String[] args) {
+        Twitter twitter = new Twitter();
+
+// 用户1发送了一条新推文 (用户id = 1, 推文id = 5).
+        twitter.postTweet(1, 1);
+
+// 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
+        twitter.getNewsFeed(1);
+
+// 用户1关注了用户2.
+        twitter.follow(2, 1);
+        twitter.getNewsFeed(2);
+// 用户2发送了一个新推文 (推文id = 6).
+//        twitter.postTweet(2, 6);
+
+// 用户1的获取推文应当返回一个列表，其中包含两个推文，id分别为 -> [6, 5].
+// 推文id6应当在推文id5之前，因为它是在5之后发送的.
+//        twitter.getNewsFeed(1);
+
+// 用户1取消关注了用户2.
+        twitter.unfollow(2, 1);
+
+// 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
+// 因为用户1已经不再关注用户2.
+        twitter.getNewsFeed(2);
     }
 }
 
