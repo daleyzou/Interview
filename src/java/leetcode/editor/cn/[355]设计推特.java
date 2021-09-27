@@ -42,12 +42,16 @@ package leetcode.editor.cn;//设计一个简化版的推特(Twitter)，可以让
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Twitter {
