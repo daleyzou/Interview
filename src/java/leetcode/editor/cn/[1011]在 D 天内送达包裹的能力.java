@@ -60,7 +60,7 @@ package leetcode.editor.cn;//传送带上的包裹必须在 D 天内从一个港
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution1011 {
     public int shipWithinDays(int[] weights, int days) {
 
         int min = getWeight(weights);
@@ -122,11 +122,11 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int i = solution.shipWithinDays(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5);
+        Solution1011 solution1011 = new Solution1011();
+        int i = solution1011.shipWithinDays(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5);
         System.out.println(i);
 
-        System.out.println(solution.isCanSpeed(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 12,5));
+        System.out.println(solution1011.isCanSpeed(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 12,5));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
