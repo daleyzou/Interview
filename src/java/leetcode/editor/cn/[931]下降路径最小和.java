@@ -49,7 +49,7 @@ package leetcode.editor.cn;//给你一个 n x n 的 方形 整数数组 matrix �
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution931 {
     public int minFallingPathSum(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
@@ -89,9 +89,9 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution931 solution931 = new Solution931();
         int [][] matrix = new int[][]{{2,1,3},{6,5,4},{7,8,9}};
-        int i = solution.minFallingPathSum(matrix);
+        int i = solution931.minFallingPathSum(matrix);
         System.out.println(i);
     }
 }
