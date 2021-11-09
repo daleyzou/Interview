@@ -29,10 +29,14 @@ package leetcode.editor.cn;//给定一个包含正整数、加(+)、减(-)、乘
 // 👍 57 👎 0
 
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution16_26 {
     Stack<Integer> stack = new Stack<>();
     public int calculate(String s) {
         char[] array = s.toCharArray();
@@ -43,6 +47,8 @@ class Solution {
             if(Character.isDigit(c)){
                 num = num * 10 + (c - '0');
             }
+            Map<Integer, List<Integer>> indexMap = new HashMap<>();
+            indexMap.put(0, Arrays.asList(new Integer[]{1,3}));
             if(!Character.isDigit(c) && c != ' ' || i == array.length -1){
                 if('+' == sign){
                     stack.push(num);
