@@ -46,14 +46,26 @@ import java.util.List;
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
+            System.out.println("nums = " + Arrays.toString(nums));
 
+        return nSum(nums, 3, 0, 0);
+    }
+
+    public List<List<Integer>> nSum(int[] nums, int n, int first, int target){
+        System.out.println("nSum first:" + first);
         List<List<Integer>> data = new ArrayList<>();
-        int i = 0;
+        if(n < 2 || nums.length < n){
+            return data;
+        }
+        if(n == 2){
+            return twoSum(nums, first, target);
+        }
+        int i = first;
         while(i < nums.length){
             int cur = nums[i];
-            List<List<Integer>>  temp = twoSum(nums, i+1, 0 - cur);
+            List<List<Integer>>  temp = nSum(nums, n-1, i+1, target - cur);
             for(List<Integer> it : temp){
-                it.add(nums[i]);
+                it.add(cur);
                 data.add(it);
             }
             while(i < nums.length && nums[i] == cur){
@@ -64,7 +76,7 @@ class Solution {
     }
 
     public List<List<Integer>> twoSum(int[] nums, int start, int target){
-        System.out.println("twoSum:" + target);
+        System.out.println("start: " + start + " target:" + target );
         int begin = start;
         int end = nums.length -1;
         List<List<Integer>> result = new ArrayList<>();
@@ -72,11 +84,11 @@ class Solution {
             int sum = nums[begin] + nums[end];
             int left = nums[begin];
             int right = nums[end];
-            if(sum < target){
+            if(sum > target){
                 while(begin < end && nums[begin] == left){
                     begin++;
                 }
-            }else if(sum > target){
+            }else if(sum < target){
                 while(begin < end && nums[end] == right){
                     end--;
                 }
@@ -95,10 +107,9 @@ class Solution {
         }
         return result;
     }
-
     public static void main(String[] args) {
         Solution solution = new Solution();
-        List<List<Integer>> lists = solution.threeSum(new int[]{1, -1, -1, 0});
+        List<List<Integer>> lists = solution.threeSum(new int[]{1,-1,-1,0});
         System.out.println(lists);
     }
 }
