@@ -74,6 +74,7 @@ public class CalBigOne {
         while(nums[begin] <= num){
             begin++;
         }
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
         return nums[begin];
     }
 

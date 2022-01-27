@@ -30,13 +30,11 @@ package leetcode.editor.cn;//给定一个未排序的整数数组 nums ，找出
 // 👍 1062 👎 0
 
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution128 {
     public int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
 
@@ -56,8 +54,8 @@ class Solution {
         return longStep;
     }
     public static void main(String[] args) {
-        Solution solution =new Solution();
-        int i = solution.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2});
+        Solution128 solution128 =new Solution128();
+        int i = solution128.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2});
         System.out.println(i);
     }
 }
