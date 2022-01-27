@@ -31,32 +31,30 @@ package leetcode.editor.cn;//给定一个未排序的整数数组 nums ，找出
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int longestConsecutive(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Set<Integer> set = new HashSet<>();
 
-        int max = nums[0];
         for(int i = 0; i < nums.length; i++){
-            map.put(nums[i], 1);
-            max = Math.max(nums[i], max);
+            set.add(nums[i]);
         }
-        int result = 1;
-        for(int i = 1; i <= max; i++){
-            int small = i -1;
-            if(map.containsKey(small)){
-                int more = map.get(small) +1;
-                map.put(i,more);
-                result = Math.max(result, more);
-            }else{
-                map.put(i,1);
+        int longStep = 1;
+        for(int i = 0; i < nums.length; i++){
+            int plus = i +1;
+            int temp = 1;
+            while(set.contains(plus)){
+                plus++;
+                temp++;
+                longStep = Math.max(longStep, temp);
             }
         }
-        return result;
+        return longStep;
     }
-
     public static void main(String[] args) {
         Solution solution =new Solution();
         int i = solution.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2});
