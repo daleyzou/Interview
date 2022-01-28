@@ -50,77 +50,71 @@ package leetcode.editor.cn;//给定一个经过编码的字符串，返回它解
 // 👍 1015 👎 0
 
 
+import java.util.Stack;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution394 {
     public String decodeString(String s) {
-        return find(s, 0);
-    }
+        Stack<Integer> numberStack = new Stack<>();
+        Stack<String> strStack = new Stack<>();
 
-    public String find(String s, int begin){
-        if(begin >= s.length()){
-            return "";
-        }
-        // [
-        int left = findLeft(s, begin);
-        // ]
-        int right = findRight(s, begin);
-        if(left >= s.length()){
-            return "";
-        }
-        int count = findCount(s, left);
+        int index = 0;
+        String temp = "";
+        while(index < s.length()){
+            char ch = s.charAt(index);
+            if(Character.isDigit(ch)){
+                String data = "";
+                while(Character.isDigit(ch)){
+                    data += ch;
+                    index++;
+                    ch = s.charAt(index);
+                }
+                numberStack.push(Integer.valueOf(data));
 
-        int countNumber = Integer.valueOf(s.substring(count, left));
-        String need = s.substring(left+1, right);
-        String result = "";
-        while(countNumber > 0){
-            result += need;
-            countNumber--;
-        }
-
-        return result + find(s, right +1);
-    }
-
-    public int findCount(String s, int left){
-        int count = left-1;
-
-        while(left >= 0){
-            char c = s.charAt(left);
-            if(c == ']'){
-                return left + 1;
+            }else{
+                if(ch == ']'){
+                    Stack<String> list = new Stack<>();
+                    String str = strStack.pop();
+                    while(!str.equals("[")){
+                        list.push(str);
+                        str = strStack.pop();
+                    }
+                    int count = numberStack.pop();
+                    String item = getString(list);
+                    StringBuilder sb = new StringBuilder(item);
+                    while(count-- > 1){
+                        sb.append(item);
+                    }
+                    strStack.push(sb.toString());
+                }else {
+                    strStack.push(ch + "");
+                }
+                index++;
             }
-            left--;
         }
-        return count;
+        return getResult(strStack);
     }
 
-    public int findLeft(String s, int begin){
-        int result = begin;
-        while(begin < s.length()){
-            char c = s.charAt(begin);
-            if(c == '['){
-                return begin;
-            }
-            begin++;
+    public String getString(Stack<String> stack){
+        StringBuilder sb = new StringBuilder();
+        while(!stack.isEmpty()){
+//             sb.insert(0, stack.pop());
+            sb.append(stack.pop());
         }
-        return s.length();
+        return sb.toString();
     }
 
-    public int findRight(String s, int begin){
-        int result = begin;
-        while(begin < s.length()){
-            char c = s.charAt(begin);
-            if(c == ']'){
-                return begin;
-            }
-            begin++;
+    public String getResult(Stack<String> stack){
+        StringBuilder sb = new StringBuilder();
+        while(!stack.isEmpty()){
+             sb.insert(0, stack.pop());
         }
-        return s.length();
+        return sb.toString();
     }
-
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution394 solution394 = new Solution394();
 
-        String s = solution.decodeString("3[a]2[bc]");
+        String s = solution394.decodeString("1[1[1[jk]e1[f]]]");
         System.out.println(s);
     }
 }
