@@ -48,7 +48,7 @@ package leetcode.editor.cn;//给你一个整数数组 nums ，找到其中最长
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution300 {
     public int lengthOfLIS(int[] nums) {
         int[] dp = new int[nums.length];
         int maxResult = 1;
@@ -65,8 +65,8 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int i = solution.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18});
+        Solution300 solution300 = new Solution300();
+        int i = solution300.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18});
         System.out.println(i);
     }
 }
