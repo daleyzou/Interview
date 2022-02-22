@@ -1,6 +1,7 @@
 package com.daleyzou.learn;
 
 import java.util.Arrays;
+import java.util.TreeMap;
 
 /**
  * @Author: DaleyZou
@@ -11,7 +12,7 @@ import java.util.Arrays;
 public class Test {
     public static void main(String[] args) {
         String a=new String("A");
-        String b=new String("B");
+        String b= "B";
         oper(a,b);
         System.out.println(a+","+b);
 
@@ -25,6 +26,10 @@ public class Test {
 
         // 查看哈希值源码
         System.out.println("哈希值：" + a1.hashCode());
+
+        TreeMap<String, String> treeMap = new TreeMap<>();
+        int i = 'a';
+        System.out.println(i);
     }
     static void oper(String c,String d){
         c.concat("B");
