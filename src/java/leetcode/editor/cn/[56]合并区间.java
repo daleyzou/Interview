@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Stack;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution56 {
     public int[][] merge(int[][] intervals) {
         if(intervals.length <= 1){
             return intervals;
@@ -86,9 +86,9 @@ class Solution {
 
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution56 solution56 = new Solution56();
         int[][] intervals = new int[][]{{2,3},{4,5},{6,7},{8,9},{1,10}};
-        int[][] merge = solution.merge(intervals);
+        int[][] merge = solution56.merge(intervals);
         System.out.println(merge);
     }
 }
