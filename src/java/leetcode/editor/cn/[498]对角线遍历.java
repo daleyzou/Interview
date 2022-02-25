@@ -35,7 +35,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution498 {
     public int[] findDiagonalOrder(int[][] mat) {
         PriorityQueue<int[]> queue = new PriorityQueue<>((a, b)->{
             if(a[0] + a[1] == b[0]+b[1]){
@@ -63,9 +63,9 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution498 solution498 = new Solution498();
         int[][] mat = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
-        int[] diagonalOrder = solution.findDiagonalOrder(mat);
+        int[] diagonalOrder = solution498.findDiagonalOrder(mat);
         System.out.println(Arrays.toString(diagonalOrder));
     }
 }

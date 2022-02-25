@@ -41,5 +41,8 @@ public class Test {
         for (List<Integer> list : lists) {
             System.out.println(list.toString());
         }
+
+        String s = "";
+
     }
 }
