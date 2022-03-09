@@ -1,7 +1,10 @@
 package com.daleyzou.learn;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.TreeMap;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author: DaleyZou
@@ -30,11 +33,26 @@ public class Test {
         TreeMap<String, String> treeMap = new TreeMap<>();
         int i = 'a';
         System.out.println(i);
-
+        HashMap<String, String> map = new HashMap<>(16);
     }
     static void oper(String c,String d){
         c.concat("B");
         d=c;
+    }
+
+    public synchronized void test() throws InterruptedException {
+        ReentrantLock lock = new ReentrantLock();
+        Condition notEmpty = lock.newCondition();
+        lock.lock();
+        lock.lockInterruptibly();
+        try {
+            notEmpty.await();
+
+            notEmpty.signal();
+        }finally {
+            lock.unlock();
+        }
+
     }
 
 }
