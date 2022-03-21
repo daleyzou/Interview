@@ -1,9 +1,12 @@
 package com.daleyzou.Test;
 
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * TestEverything
@@ -30,6 +33,10 @@ public class TestEverything {
         }
         System.out.println(sb.toString());
 
+        List<Integer> list = new ArrayList<>();
+        ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(100);
+        queue.drainTo(list, 100);
 
+        LinkedHashMap<String, String> hashMap =new LinkedHashMap<>(10, 0.75f, true);
     }
 }
