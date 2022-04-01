@@ -2,11 +2,13 @@ package com.daleyzou.Test;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * TestEverything
@@ -38,5 +40,9 @@ public class TestEverything {
         queue.drainTo(list, 100);
 
         LinkedHashMap<String, String> hashMap =new LinkedHashMap<>(10, 0.75f, true);
+
+        HashMap<String, String> map = new HashMap<>(12);
+        map.put("1", "1");
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
     }
 }
