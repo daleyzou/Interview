@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * DeadLockTest
- * @description TODO
+ * @description 模拟死锁的产生过程
  * @author daleyzou
  * @date 2022年04月12日 17:30
  * @version 1.1.1

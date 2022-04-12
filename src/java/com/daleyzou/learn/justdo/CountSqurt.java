@@ -3,6 +3,7 @@ package com.daleyzou.learn.justdo;
 /**
  * CountSqurt
  * @description CountSqurt
+ *   输入整数x,输出开根号的结果，保留精度0.00001。
  * @author daleyzou
  * @date 2022年04月12日 17:18
  * @version 1.1.1
