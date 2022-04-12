@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * TestEverything
@@ -44,5 +45,8 @@ public class TestEverything {
         HashMap<String, String> map = new HashMap<>(12);
         map.put("1", "1");
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+
+        LinkedBlockingDeque<String> deque = new LinkedBlockingDeque<>();
+        deque.add("");
     }
 }

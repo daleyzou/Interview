@@ -68,9 +68,31 @@ class Solution {
                 begin = n-i-1;
             }
         }
-        System.out.println(end);
-        System.out.println(begin);
         return end - begin + 1;
+    }
+
+    public int findLeft(int[] nums){
+        int n = nums.length;
+        int right = -1;
+        int min = nums[n-1];
+
+        for(int i = 0; i < n; i++){
+            if(nums[i] > min){
+                right = i;
+            }else{
+                min = nums[i];
+            }
+        }
+        System.out.println(right);
+        return right;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int unsortedSubarray = solution.findUnsortedSubarray(new int[] { 1, 2, 3, 4 });
+        System.out.println(unsortedSubarray);
+
+        System.out.println(solution.findLeft(new int[]{1,2,3,4}));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

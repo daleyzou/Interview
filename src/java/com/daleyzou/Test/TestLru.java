@@ -30,7 +30,7 @@ public class TestLru {
         int size;
         public DoubleLinked(){
             head = new Node();
-            tail = new Node;
+            tail = new Node();
             head.next = tail;
             tail.pre = head;
         }
@@ -83,13 +83,13 @@ public class TestLru {
         // 元素存在， 修改后，移动到链表末尾
 
         // 元素不存在， 判断是否需要移除链表头的元素， 然后将写入的节点加到链表末尾
-
+        return 0;
     }
 
     public void removeNode(){
 
     }
     public Node addNode(){
-
+        return new Node(1);
     }
 }
