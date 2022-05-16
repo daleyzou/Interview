@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2022年04月20日 20:46
  * @version 1.1.1
  */
-public class Test1 {
+public class TwoThreadPrintNumber {
     volatile  int count = 1;
     public  void print() throws InterruptedException {
         ReentrantLock lock = new ReentrantLock();
@@ -59,8 +59,8 @@ public class Test1 {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Test1 test1 = new Test1();
-        test1.print();
+        TwoThreadPrintNumber twoThreadPrintNumber = new TwoThreadPrintNumber();
+        twoThreadPrintNumber.print();
         while (true){
 
         }
