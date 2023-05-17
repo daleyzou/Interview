@@ -47,7 +47,7 @@ package leetcode.editor.cn;//给你一个整数数组 nums ，你需要找出一
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution581 {
     public int findUnsortedSubarray(int[] nums) {
         int n = nums.length;
 
@@ -88,11 +88,11 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int unsortedSubarray = solution.findUnsortedSubarray(new int[] { 1, 2, 3, 4 });
+        Solution581 solution581 = new Solution581();
+        int unsortedSubarray = solution581.findUnsortedSubarray(new int[] { 1, 2, 3, 4 });
         System.out.println(unsortedSubarray);
 
-        System.out.println(solution.findLeft(new int[]{1,2,3,4}));
+        System.out.println(solution581.findLeft(new int[]{1,2,3,4}));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
