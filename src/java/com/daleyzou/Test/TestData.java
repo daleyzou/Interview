@@ -3,6 +3,10 @@ package com.daleyzou.Test;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Stack;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * TestData
@@ -13,7 +17,7 @@ import java.util.Stack;
  */
 public class TestData {
 
-    public class ListNode{
+    public static class ListNode{
         int val;
         ListNode next;
         public ListNode(){}
@@ -39,6 +43,13 @@ public class TestData {
 
        int[] nums = new int[]{1,4,5};
         Arrays.sort(nums, 0, nums.length-1);
+
+        SynchronousQueue<ListNode> queue = new SynchronousQueue<>();
+        queue.add(new ListNode());
+        ListNode poll = queue.poll();
+        ExecutorService executorService = Executors.newCachedThreadPool();
+
+
     }
 
 

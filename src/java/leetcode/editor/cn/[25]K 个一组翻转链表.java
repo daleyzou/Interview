@@ -71,40 +71,34 @@ package leetcode.editor.cn;//给你一个链表，每 k 个节点一组进行翻
  */
 class Solution25 {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if(head == null || head.next ==null || k <=1){
+        if(head == null || head.next == null || k <= 1){
             return head;
         }
-        ListNode kNode;
-        kNode = head;
-        ListNode tempNode = head;
-        for(int i = 0; i<k; i++){
-            if(kNode==null){
+
+        ListNode end = head;
+
+        for(int i = 0; i < k; i++){
+            if(end == null){
                 return head;
             }
-            kNode = kNode.next;
+            end = end.next;
         }
-        ListNode newHead = reverse(head, kNode);
-        tempNode.next = reverseKGroup(kNode, k);
+        ListNode newHead = reverseGroup(head, end);
+        newHead.next = reverseKGroup(end.next, k);
         return newHead;
     }
-
-    public ListNode reverse(ListNode begin, ListNode end){
-        if(begin==null){
-            return begin;
+    public ListNode reverseGroup(ListNode begin, ListNode end){
+        ListNode firstPoint = begin;
+        ListNode secondPoint = firstPoint.next;
+        while(secondPoint != end){
+            ListNode temp = secondPoint.next;
+            secondPoint.next = firstPoint;
+            firstPoint = secondPoint;
+            secondPoint = temp;
         }
-        ListNode pre, cur, next;
-        pre =null;
-        cur = begin;
-        next = begin;
-        while(cur != end){
-            next = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-        }
-        return pre;
+        begin.next = null;
+        return firstPoint;
     }
-
     public static class ListNode {
       int val;
       ListNode next;
