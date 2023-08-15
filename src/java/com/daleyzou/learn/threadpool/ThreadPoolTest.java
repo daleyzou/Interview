@@ -14,9 +14,13 @@ import java.util.concurrent.TimeUnit;
  * @date 2023年08月15日 16:37
  */
 public class ThreadPoolTest {
-    public static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(),
-            Runtime.getRuntime().availableProcessors() * 2, 60, TimeUnit.SECONDS,
-            new LinkedBlockingDeque<>(100), new CustomThreadFactory("test"), new MyPolicy("test"));
+    public static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+            Runtime.getRuntime().availableProcessors(),
+            Runtime.getRuntime().availableProcessors() * 2,
+            60, TimeUnit.SECONDS,
+            new LinkedBlockingDeque<>(100),
+            new CustomThreadFactory("test"),
+            new MyPolicy("test"));
     
     static {
         threadPoolExecutor.allowCoreThreadTimeOut(true);
