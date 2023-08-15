@@ -22,7 +22,11 @@ public class CustomThreadFactory implements ThreadFactory {
     @Override
     public Thread newThread(Runnable runnable) {
         String threadName = threadNamePrefix + "-" + threadCount.getAndIncrement();
-        return new Thread(runnable, threadName);
+        Thread thread = new Thread(runnable, threadName);
+        thread.setUncaughtExceptionHandler(
+                (t, e) -> System.out.println("Uncaught exception in thread '" + t.getName() + "': " + e.getMessage())
+        );
+        return thread;
     }
 }
 
