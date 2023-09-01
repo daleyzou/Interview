@@ -2,6 +2,7 @@ package com.daleyzou.learn;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Condition;
@@ -36,6 +37,8 @@ public class Test {
         System.out.println(i);
         HashMap<String, String> map = new HashMap<>(16);
         Hashtable<String, String> hashtable = new Hashtable<>();
+        HashSet<String> hashSet = new HashSet<>(20);
+        hashSet.add("1");
         System.out.println(hashtable.size());
     }
     static void oper(String c,String d){

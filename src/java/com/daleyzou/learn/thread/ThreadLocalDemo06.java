@@ -48,7 +48,7 @@ public class ThreadLocalDemo06 {
         Date date = new Date(1000 * seconds);
         
         SimpleDateFormat dateFormat = ThreadSafeFormatter.dateFormatThreadLocal.get();
-        
+        ThreadSafeFormatter.dateFormatThreadLocal.remove();
         return dateFormat.format(date);
         
     }
