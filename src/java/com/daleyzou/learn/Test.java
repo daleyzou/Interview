@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.TreeMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -40,6 +45,12 @@ public class Test {
         HashSet<String> hashSet = new HashSet<>(20);
         hashSet.add("1");
         System.out.println(hashtable.size());
+        
+        AtomicInteger atomicInteger = new AtomicInteger(4);
+        AtomicStampedReference<Integer> atomicStampedReference = new AtomicStampedReference<>(68, 1);
+        atomicStampedReference.attemptStamp(48, 2);
+        
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
     }
     static void oper(String c,String d){
         c.concat("B");
